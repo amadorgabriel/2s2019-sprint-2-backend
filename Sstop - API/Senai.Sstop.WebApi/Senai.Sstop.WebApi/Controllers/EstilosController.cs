@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Sstop.WebApi.Domains;
-using Senai.Sstop.WebApi.Repository;
+using Senai.Sstop.WebApi.Repositories;
 
 namespace Senai.Sstop.WebApi.Controllers
 {
@@ -32,8 +32,6 @@ namespace Senai.Sstop.WebApi.Controllers
             }
             return Ok(Estilo); // Retorna o Estilo, não uma mensagem "OK" :)
         }
-
-
 
         EstiloRepository EstiloRepository = new EstiloRepository();
         [HttpGet]

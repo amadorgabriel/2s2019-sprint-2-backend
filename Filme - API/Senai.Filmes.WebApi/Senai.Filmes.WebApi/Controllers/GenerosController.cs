@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Filmes.WebApi.Domains;
+using Senai.Filmes.WebApi.Repository;
 
 namespace Senai.Filmes.WebApi.Controllers
 {
@@ -13,6 +14,7 @@ namespace Senai.Filmes.WebApi.Controllers
     [ApiController]
     public class GenerosController : ControllerBase
     {
+        GeneroRepository generoRepository = new GeneroRepository();
         List<GeneroDomain> generos = new List<GeneroDomain>()
         {
             new GeneroDomain {IdGenero = 1, Nome = "Ação"},
@@ -23,7 +25,7 @@ namespace Senai.Filmes.WebApi.Controllers
         [HttpGet]
         public IEnumerable<GeneroDomain> ListarTodos() // Lista todos Jasons de uma lista
         {
-            return generos; // ALTERAR
+            return generoRepository.Listar();
         }
 
         [HttpGet("{id}")] // Lista um só objeto da lista
@@ -37,7 +39,7 @@ namespace Senai.Filmes.WebApi.Controllers
             return Ok(Genero); 
         }
 
-        [HttpPost] 
+        [HttpPost] // Poderia passar pela url mas JSON é mais seguro
         public IActionResult CadastrarGenero (GeneroDomain generoDomain)
         {
             generos.Add(

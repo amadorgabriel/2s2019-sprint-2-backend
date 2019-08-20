@@ -5,46 +5,51 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senai.Sstop.WebApi.Repository
+namespace Senai.Sstop.WebApi.Repositories
 {
     public class EstiloRepository
     {
-                                // 
-        private string StringConexao = "Data Source=.\\SqlExpress;InitialCatalog=T/_Sstop;User Id=sa;Pwd=132";
+
+        // aonde que será feita essa comunicação
+        // private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_SStop;User Id=sa;Pwd=132;";
+        private string StringConexao = "Data Source=localhost;Initial Catalog=T_SStop;Integrated Security=true;";
 
         public List<EstiloDomain> Listar()
         {
-            // Buscar dados do Banco
             List<EstiloDomain> estilos = new List<EstiloDomain>();
 
-            //Chamar o Banco de Dados
+            // chamar o banco - declaro passando a string de conexão
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                // Comando a ser executado
+                // nossa query a ser executada
                 string Query = "SELECT IdEstiloMusical, Nome FROM EstilosMusicais";
-
-                // Abrir connection
+                // abrir a conexao
                 con.Open();
 
-                //Ler
+                // declaro para percorrer a lista
                 SqlDataReader sdr;
-
+                // comando a ser executado em qual conexao
                 using (SqlCommand cmd = new SqlCommand(Query, con))
                 {
+                    // pegar os valores da tabela do banco e armazenar dentro da aplicacao do backend
                     sdr = cmd.ExecuteReader();
-                    while (sdr.Read())
+
+                    while(sdr.Read())
                     {
-                        EstiloDomain estilo = EstiloDomain{
-                            IdEstilo = Convert.ToInt32(sdr["IdEstiloMusical"])
+                        EstiloDomain estilo = new EstiloDomain
+                        {
+                            IdEstilo = Convert.ToInt32(sdr["IdEstiloMusical"]),
                             Nome = sdr["Nome"].ToString()
-                        }
+                        };
                         estilos.Add(estilo);
                     }
                 }
-                return  estilos 
 
             }
+            // executar o select
+            // retornar as informacoes
 
+            return estilos;
         }
     }
 }
