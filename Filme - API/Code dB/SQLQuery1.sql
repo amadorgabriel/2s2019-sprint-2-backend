@@ -15,5 +15,9 @@ CREATE TABLE Filmes
     ,IdGenero   INT FOREIGN KEY REFERENCES Generos (IdGenero)
 );
 
-SELECT IdGenero, Nome FROM Generos
+SELECT * FROM Generos;
+SELECT * FROM Generos WHERE IdGenero = 2;
 INSERT INTO Generos(Nome) VALUES ('Drama'),('Ficção Cientifica');
+DELETE FROM Generos WHERE IdGenero = 1;
+
+SELECT * FROM Filmes

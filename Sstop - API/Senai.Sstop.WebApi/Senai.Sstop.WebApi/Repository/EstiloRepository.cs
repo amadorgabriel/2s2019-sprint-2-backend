@@ -10,7 +10,11 @@ namespace Senai.Sstop.WebApi.Repositories
     public class EstiloRepository
     {
         // aonde que será feita essa comunicação
-        private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_SStop;User Id=sa;Pwd=132;";
+        //  private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_SStop;User Id=sa;Pwd=132;";
+        private string StringConexao = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=T_SStop;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01";
+           
+
+        
         public List<EstiloDomain> Listar()
         {
             List<EstiloDomain> estilos = new List<EstiloDomain>();

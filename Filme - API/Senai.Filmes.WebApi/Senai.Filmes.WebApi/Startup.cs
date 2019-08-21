@@ -12,7 +12,6 @@ namespace Senai.Filmes.WebApi
 {
     public class Startup
     {
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1); //
@@ -27,6 +26,5 @@ namespace Senai.Filmes.WebApi
 
             app.UseMvc(); //
         }
-
-}
+    }
 }

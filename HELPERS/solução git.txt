@@ -1,0 +1,22 @@
+3
+
+Problema resolvido. Para isso, eu editei as credenciais do Github no Windows.
+
+Se estiver no Windows 7, pode ir por esse caminho:
+
+Painel de Controle\Contas de Usuário e Segurança Familiar\Gerenciador de Credenciais
+
+Lá no final, você irá encontrar o item "Credenciais Genéricas" com o link do Github ou do Gitbucket ou dos dois Ai é só você clicar na setinha e editar o nome de usuário e a senha.
+
+compartilharmelhorar esta resposta
+editada 14/01/17 às 21:18
+
+bfavaretto?
+57mil8121194
+respondida 14/01/17 às 11:31
+
+Daniel Swater
+66311025
+2
+Estou com mesmo problema no Windows, poderia me explicar o passo-a-passo para ver se eu consigo corrigir aqui? Obrigado – Guilherme Nascimento 14/01/17 às 17:35
+Guilherme, se estiver no Windows 7, pode ir por esse caminho: Painel de Controle\Contas de Usuário e Segurança Familiar\Gerenciador de Credenciais Lá no final, você irá encontrar o ítem "Credenciais Genéricas" com o link do Github ou do Gitbucket ou dos dois Ai é só você clicar na setinha e editar o nome de usuário e a senha – Daniel Swater 14/01/17 às 20:12
