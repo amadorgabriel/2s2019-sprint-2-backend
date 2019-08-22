@@ -1,6 +1,6 @@
-CREATE DATABASE RoteiroFilmes;
+CREATE DATABASE T_RoteiroFilmes;
 
-USE RoteiroFilmes;
+USE T_RoteiroFilmes;
 
 CREATE TABLE Generos 
 (
@@ -19,5 +19,7 @@ SELECT * FROM Generos;
 SELECT * FROM Generos WHERE IdGenero = 2;
 INSERT INTO Generos(Nome) VALUES ('Drama'),('Ficção Cientifica');
 DELETE FROM Generos WHERE IdGenero = 1;
+SELECT * FROM Filmes;
+INSERT INTO Filmes(Titulo, IdGenero) VALUES ('Rei Leão', 1),('Marley e Eu', 2);
 
-SELECT * FROM Filmes
+UPDATE Generos SET Nome = 'Horror' WHERE IdGenero = 1;

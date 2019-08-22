@@ -12,5 +12,6 @@ namespace Senai.Filmes.WebApi.Domains
 
         [Required (ErrorMessage = "Campo Nome é obrigatório")]
         public string Nome { get; set; }
+        
     }
 }

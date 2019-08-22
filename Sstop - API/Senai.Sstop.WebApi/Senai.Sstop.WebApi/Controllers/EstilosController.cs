@@ -20,13 +20,6 @@ namespace Senai.Sstop.WebApi.Controllers
     public class EstilosController : ControllerBase // - ControllerBase é um resumo do Controller
     {
 
-        List<EstiloDomain> estilos = new List<EstiloDomain>()
-        {
-                new EstiloDomain { IdEstilo = 1, Nome = "Rock" },
-                new EstiloDomain { IdEstilo = 2, Nome = "Rap" },
-                new EstiloDomain { IdEstilo = 3, Nome = "MPB" }
-        };
-
      
 
         EstiloRepository EstiloRepository = new EstiloRepository();

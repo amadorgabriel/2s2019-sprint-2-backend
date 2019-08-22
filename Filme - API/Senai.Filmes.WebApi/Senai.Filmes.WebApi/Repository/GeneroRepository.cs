@@ -9,8 +9,8 @@ namespace Senai.Filmes.WebApi.Repository
 {
     public class GeneroRepository
     {
-        // private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=RoteiroFilmes;;Integrated Security=True";
-        private string StringConexao = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=RoteiroFilmes;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01";
+        private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_RoteiroFilmes;User Id=sa;Pwd=132;";
+        // private string StringConexao = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=RoteiroFilmes;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01";
 
         public List<GeneroDomain> Listar()
         {
@@ -126,6 +126,21 @@ namespace Senai.Filmes.WebApi.Repository
             }
         }
    
-   
+        public void Atualizar (int id, GeneroDomain genero)
+        {
+            using(SqlConnection con = new SqlConnection(StringConexao))
+            {
+                con.Open();
+                string Query = "UPDATE Generos SET Nome = @Nome WHERE IdGenero = @Id;";
+                SqlDataReader sdr;
+
+                using(SqlCommand cmd = new SqlCommand(Query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+                    sdr = cmd.ExecuteReader();
+                }
+            }
+        }
     }
 }

@@ -46,5 +46,12 @@ namespace Senai.Filmes.WebApi.Controllers
             return Ok();
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Atualizar (int id, GeneroDomain genero)
+        {
+            generoRepository.Atualizar(id, genero);
+            return Ok();
+        }
+
     }
 }
