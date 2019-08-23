@@ -17,7 +17,7 @@ namespace Senai.Filmes.WebApi.Controllers
         GeneroRepository generoRepository = new GeneroRepository();
 
         [HttpGet]
-        public IEnumerable<GeneroDomain> ListarTodos() // Lista todos Jasons de uma lista
+        public List<GeneroDomain> ListarTodos() // Lista todos Jasons de uma lista
         {
             return generoRepository.Listar();
         }
@@ -30,28 +30,39 @@ namespace Senai.Filmes.WebApi.Controllers
             {
                 return NotFound();
             }
-            return Ok(genero); 
+            return Ok(genero);
         }
 
         [HttpPost] // Poderia passar pela url mas JSON é mais seguro
-        public IActionResult Cadastrar (GeneroDomain generoDomain)
+        public IActionResult Cadastrar(GeneroDomain generoDomain)
         {
             generoRepository.Cadastrar(generoDomain);
-            return Ok(); 
+            return Ok();
         }
 
         [HttpDelete("{id}")] // Lista um só objeto da lista
-        public IActionResult Deletar (int Id){
+        public IActionResult Deletar(int Id)
+        {
             generoRepository.Deletar(Id);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult Atualizar (int id, GeneroDomain genero)
+        public IActionResult Atualizar(int id, GeneroDomain genero)
         {
             generoRepository.Atualizar(id, genero);
             return Ok();
         }
 
+        [HttpGet("{nome}/buscar")]
+        public List<GeneroDomain> BuscarGenerosPorNome(string nome)
+        {
+            List<GeneroDomain> generoLs = generoRepository.BuscarPorNome(nome);
+            if (generoLs == null)
+            {
+                NotFound();
+            }
+            return generoLs;
+        }
     }
 }

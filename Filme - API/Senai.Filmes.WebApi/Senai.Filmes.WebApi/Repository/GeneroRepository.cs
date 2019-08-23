@@ -46,26 +46,29 @@ namespace Senai.Filmes.WebApi.Repository
             }
             return generos;
         }
-    
-        public GeneroDomain BuscarPorId(int id){ // Basicamente um SELECT com WHERE
-            //Buscar
-            //Criar conexão para acessar dB
-            //abrir Conexão
-            //criar query do comando no db
-            //using comando (query , conexao)
-            //definir parametro onde @id = id
-            // criar sdr que armazena os dados do dB
-            // criar loop que armazenará cada linha numa classeDomain onde irá
-                //- Criar o Domain
-                //- Atribuir os valores das linhas das tabelas dB a um domain
-                //- Converter os dados sdr, até toString();
-            //retornar Domain
 
-            using(SqlConnection conexao = new SqlConnection(StringConexao)){
+        public GeneroDomain BuscarPorId(int id)
+        { // Basicamente um SELECT com WHERE
+          //Buscar
+          //Criar conexão para acessar dB
+          //abrir Conexão
+          //criar query do comando no db
+          //using comando (query , conexao)
+          //definir parametro onde @id = id
+          // criar sdr que armazena os dados do dB
+          // criar loop que armazenará cada linha numa classeDomain onde irá
+          //- Criar o Domain
+          //- Atribuir os valores das linhas das tabelas dB a um domain
+          //- Converter os dados sdr, até toString();
+          //retornar Domain
+
+            using (SqlConnection conexao = new SqlConnection(StringConexao))
+            {
                 conexao.Open();
                 string Query = "SELECT * FROM Generos WHERE IdGenero = @Id";
 
-                using(SqlCommand command = new SqlCommand(Query, conexao)){
+                using (SqlCommand command = new SqlCommand(Query, conexao))
+                {
 
                     command.Parameters.AddWithValue("@Id", id);
                     SqlDataReader sdr = command.ExecuteReader();
@@ -74,7 +77,8 @@ namespace Senai.Filmes.WebApi.Repository
                     {
                         while (sdr.Read())
                         {
-                            GeneroDomain genero = new GeneroDomain{
+                            GeneroDomain genero = new GeneroDomain
+                            {
                                 IdGenero = Convert.ToInt32(sdr["IdGenero"]),
                                 Nome = sdr["Nome"].ToString()
                             };
@@ -86,28 +90,32 @@ namespace Senai.Filmes.WebApi.Repository
             }
 
         }
-    
-        public void Cadastrar(GeneroDomain generoDomain){
+
+        public void Cadastrar(GeneroDomain generoDomain)
+        {
             //criar conexão com dB
             //abrir conexão com dB
             //criar query do comando dB
             //criar comando (query, conexao)
             //definir parametros
             //executar
-            
-            using(SqlConnection conexao = new SqlConnection(StringConexao)){
+
+            using (SqlConnection conexao = new SqlConnection(StringConexao))
+            {
                 conexao.Open();
                 string Query = "INSERT INTO Generos(Nome) VALUES (@Nome)";
 
-                using(SqlCommand command = new SqlCommand(Query, conexao)){
+                using (SqlCommand command = new SqlCommand(Query, conexao))
+                {
                     command.Parameters.AddWithValue("@Nome", generoDomain.Nome);
                     command.ExecuteNonQuery(); // Não sei para que serve
                 }
             }
 
         }
-   
-        public void Deletar(int id){
+
+        public void Deletar(int id)
+        {
             //criar conexao
             //abrir conexao
             //crio a query
@@ -115,26 +123,28 @@ namespace Senai.Filmes.WebApi.Repository
             //crio using comando
             //executo comando
 
-            using(SqlConnection conexao = new SqlConnection(StringConexao)){
+            using (SqlConnection conexao = new SqlConnection(StringConexao))
+            {
                 conexao.Open();
                 string Query = "DELETE FROM Generos WHERE IdGenero = @Id";
 
-                using(SqlCommand command = new SqlCommand(Query, conexao)){
+                using (SqlCommand command = new SqlCommand(Query, conexao))
+                {
                     command.Parameters.AddWithValue("@Id", id);
                     command.ExecuteNonQuery();
                 }
             }
         }
-   
-        public void Atualizar (int id, GeneroDomain genero)
+
+        public void Atualizar(int id, GeneroDomain genero)
         {
-            using(SqlConnection con = new SqlConnection(StringConexao))
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 con.Open();
                 string Query = "UPDATE Generos SET Nome = @Nome WHERE IdGenero = @Id;";
                 SqlDataReader sdr;
 
-                using(SqlCommand cmd = new SqlCommand(Query, con))
+                using (SqlCommand cmd = new SqlCommand(Query, con))
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
                     cmd.Parameters.AddWithValue("@Nome", genero.Nome);
@@ -142,5 +152,40 @@ namespace Senai.Filmes.WebApi.Repository
                 }
             }
         }
+
+        public List<GeneroDomain> BuscarPorNome(string nome)
+        {
+            List<GeneroDomain> generos = new List<GeneroDomain>();
+
+            using (SqlConnection conexao = new SqlConnection(StringConexao))
+            {
+                conexao.Open();
+                string Query = "SELECT * FROM Generos WHERE Nome = @Nome ";
+
+                using (SqlCommand command = new SqlCommand(Query, conexao))
+                {
+                    command.Parameters.AddWithValue("@Nome", nome);
+                    SqlDataReader sdr = command.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            GeneroDomain genero = new GeneroDomain
+                            {
+                                IdGenero = Convert.ToInt32(sdr["IdGenero"]),
+                                Nome = sdr["Nome"].ToString()
+                            };
+                            generos.Add(genero);
+                        }
+                    }
+                    return generos;
+                }
+
+            }
+        }
+
+
+
+        }
     }
-}
