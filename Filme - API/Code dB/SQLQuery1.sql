@@ -44,5 +44,7 @@ FROM Filmes JOIN Generos
 ON Filmes.IdGenero = Generos.IdGenero
 WHERE Filmes.Titulo = 'Rei Leão';
 
-
-
+SELECT  Filmes.* , Generos.Nome
+FROM Filmes JOIN Generos
+ON Filmes.IdGenero = Generos.IdGenero
+WHERE Titulo LIKE '%Rei%'

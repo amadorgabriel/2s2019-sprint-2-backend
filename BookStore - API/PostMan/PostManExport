@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "9e23ab6b-6e9a-4330-bb72-48c93d71e0f1",
+		"name": "Senai.BookStore.Tarde",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autores.ListarTodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Autores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Autores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autores.Cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : \"Amanda\",\n\t\"email\" : \"a@a.com\",\n\t\"ativo\" : 1,\n\t\"dataNascimento\" : \"1983/3/19T00:00:00\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Autores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Autores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generos.ListarTodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Generos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Generos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generos.Cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : \"Aventura\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Generos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Generos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Livros.ListarTodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Livros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Livros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Livros.Cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"titulo\" : \"Asylun\",\n\t\"descricao\" : \"Lobotomia em todos os lugares\",\n\t\"idAutor\" : 25,\n\t\"idGenero\" : 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Livros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Livros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Livros.BuscarPorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Livros/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Livros",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Livros.Atualizar",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"titulo\": \"A Culpa é das Estrelas\",\r\n    \"descricao\": \"Um garoto apaixonado que sofre de asma.\",\r\n    \"idAutor\": 1,\r\n    \"idGenero\": 1,\r\n\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/Livros/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Livros",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Livros.DeletarPorId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Livros/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Livros",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autores.BuscarLivroPorIdAutor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/Autores/1/livros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"Autores",
+						"1",
+						"livros"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

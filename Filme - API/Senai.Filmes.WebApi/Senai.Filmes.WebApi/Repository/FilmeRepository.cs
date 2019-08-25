@@ -10,7 +10,8 @@ namespace Senai.Filmes.WebApi.Repository
 {
     public class FilmeRepository
     {
-        private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_RoteiroFilmes;User Id=sa;Pwd=132;";
+        private string StringConexao = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=T_RoteiroFilmes;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01";
+        // private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_RoteiroFilmes;User Id=sa;Pwd=132;";
 
         public List<FilmeDomain> Listar()
         {
@@ -36,7 +37,6 @@ namespace Senai.Filmes.WebApi.Repository
                             IdGenero = Convert.ToInt32(sdr["IdGenero"]),
                             Nome = sdr["Nome"].ToString(),
                         }
-
                     };
 
                     Filmes.Add(filme);
@@ -50,7 +50,7 @@ namespace Senai.Filmes.WebApi.Repository
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 con.Open();
-                string Query = "SELECT Filmes.*, Generos.Nome FROM Filmes JOIN Generos ON Filmes.IdGenero = Generos.IdGenero WHERE IdFilme = @Id; ";
+                string Query = "SELECT Filmes.*, Generos.Nome FROM Filmes JOIN Generos ON Filmes.IdGenero = Generos.IdGenero WHERE IdFilme = @Id";
 
                 SqlDataReader sdr;
 
@@ -70,7 +70,7 @@ namespace Senai.Filmes.WebApi.Repository
                             Genero = new GeneroDomain
                             {
                                 IdGenero = Convert.ToInt32(sdr["IdGenero"]),
-                                Nome = sdr["Nome"].ToString(),
+                                Nome = sdr["Nome"].ToString()
                             }
                         };
                         return filme;
@@ -123,9 +123,9 @@ namespace Senai.Filmes.WebApi.Repository
                             Genero = new GeneroDomain
                             {
                                 IdGenero = Convert.ToInt32(sdr["IdGenero"]),
-                                Nome = sdr["Nome"].ToString(),
+                                Nome = sdr["Nome"].ToString()
                             }
-                            
+
                         };
                         Filmes.Add(filme);
                     }
@@ -134,22 +134,21 @@ namespace Senai.Filmes.WebApi.Repository
             return Filmes;
         }
 
-        public List<FilmeDomain> BuscarFilmesPorPalavras(string busca)
+        public List<FilmeDomain> BuscarFilmesPorPalavras(string nome)
         {
-            List<FilmeDomain> Filmes = new List<FilmeDomain>();
+            List<FilmeDomain> listafilmes = new List<FilmeDomain>();
+
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 con.Open();
-                string Query = " SELECT Filmes.*, Generos.Nome FROM Filmes JOIN Generos ON Filmes.IdGenero = Generos.IdGenero WHERE Filmes.Titulo = 'Rei Leão'; ";
-
+                string Query = "SELECT Filmes.* , Generos.Nome FROM Filmes JOIN Generos ON Filmes.IdGenero = Generos.IdGenero WHERE Titulo LIKE '%@Titulo%'";
                 SqlDataReader sdr;
 
-                SqlCommand cmd = new SqlCommand(Query, con);
-                cmd.Parameters.AddWithValue("@Id", id);
-                sdr = cmd.ExecuteReader();
-
-                if (sdr.HasRows)
+                using (SqlCommand cmd = new SqlCommand(Query, con))
                 {
+                    cmd.Parameters.AddWithValue("@Titulo", nome);
+                    sdr = cmd.ExecuteReader();
+
                     while (sdr.Read())
                     {
                         FilmeDomain filme = new FilmeDomain
@@ -160,17 +159,15 @@ namespace Senai.Filmes.WebApi.Repository
                             Genero = new GeneroDomain
                             {
                                 IdGenero = Convert.ToInt32(sdr["IdGenero"]),
-                                Nome = sdr["Nome"].ToString(),
+                                Nome = sdr["Nome"].ToString()
                             }
-
                         };
-                        Filmes.Add(filme);
+                        listafilmes.Add(filme);
                     }
                 }
+                return listafilmes;
             }
-            return Filmes;
         }
-
     }
 }
 

@@ -69,9 +69,18 @@ namespace Senai.Filmes.WebApi.Controllers
         //GET /api/filmes/{ nome}/buscar
 
         [HttpGet("{nome}/buscar")]
-        public List<FilmeDomain> BuscarFilmesPorPalavras(string busca)
+        public List<FilmeDomain> BuscarFilmesPorPalavras(string nome)
         {
-
+            // DEBUG: 
+            TypeCode tipo = Type.GetTypeCode(nome.GetType());
+            Console.WriteLine(tipo);
+            Console.WriteLine("O NOME É: " + nome);
+            //--------------
+            if (filmeRepository.BuscarFilmesPorPalavras(nome) == null)
+            {
+                NotFound(); 
+            }
+            return filmeRepository.BuscarFilmesPorPalavras(nome);
         }
     }
 }

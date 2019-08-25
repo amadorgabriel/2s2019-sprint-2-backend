@@ -9,8 +9,8 @@ namespace Senai.Filmes.WebApi.Repository
 {
     public class GeneroRepository
     {
-        private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_RoteiroFilmes;User Id=sa;Pwd=132;";
-        // private string StringConexao = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=RoteiroFilmes;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01";
+        // private string StringConexao = "Data Source=.\\SqlExpress;Initial Catalog=T_RoteiroFilmes;User Id=sa;Pwd=132;";
+        private string StringConexao = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=T_RoteiroFilmes;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01";
 
         public List<GeneroDomain> Listar()
         {
