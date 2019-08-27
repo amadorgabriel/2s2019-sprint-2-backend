@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Senai.Gufos.WebApi
 {
@@ -22,17 +23,48 @@ namespace Senai.Gufos.WebApi
                         options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                     })
                         .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
-        }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
+            // configurar - token - jwt
+            // implementar a autenticacao
+            services.AddAuthentication(options =>
             {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseMvc();
+                options.DefaultAuthenticateScheme = "JwtBearer";
+                options.DefaultChallengeScheme = "JwtBearer";
+            }).AddJwtBearer("JwtBearer", options =>
+            {
+                // definir as opcoes
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    // quem esta solicitando
+                    ValidateIssuer = true,
+                    // quem esta validando
+                    ValidateAudience = true,
+                    // tempo de expiracao
+                    ValidateLifetime = true,
+                    // forma de criptografia
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("gufos-chave-autenticacao")),
+                    // tempo de expiracao
+                    ClockSkew = TimeSpan.FromMinutes(30),
+                    // quem esta enviando
+                    ValidIssuer = "Gufos.WebApi",
+                    ValidAudience = "Gufos.WebApi"
+                };
+            });
         }
     }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.UseAuthentication();
+        app.
+
+        app.UseMvc();
+    }
 }
+

@@ -7,7 +7,7 @@ namespace Senai.Optus.WebApi.Domains
     {
         public Estilos()
         {
-            Artistas = new HashSet<Artistas>();
+           // Artistas = new HashSet<Artistas>();
         }
 
         public int IdEstilo { get; set; }

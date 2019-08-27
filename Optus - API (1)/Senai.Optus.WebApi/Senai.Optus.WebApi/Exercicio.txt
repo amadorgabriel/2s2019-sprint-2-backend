@@ -1,14 +1,6 @@
-Criar um projeto chamado Senai.Optus.WebApi.
 
-EF Core.
-Swagger.
+------------------------------------- PENDENTES Sg -----------------------------------------------
 
------------------------ PENDENTES -------------------------------
-
-Postman.
-
-Estilos - GET, POST, PUT, DELETE
-Artistas - GET, POST
 
 Desafios Extras:
 
@@ -23,3 +15,38 @@ GET /api/estilos/quantidade
 
 Criar um endpoint para listar a quantidade de estilos e a quantidade de artistas disponíveis.
 GET /api/admin/dashboard
+
+
+-----
+
+Incluir a autenticação na aplicação a fim de que para cadastrar artistas:
+- Qualquer usuário autenticado pode realizar a chamada.
+
+
+--------------------------------- FEITOS TF ------------------------------------------------
+
+
+Criar um projeto chamado Senai.Optus.WebApi.
+
+EF Core.
+Swagger.
+Postman.
+
+Estilos - GET, POST, PUT, DELETE
+Artistas - GET, POST
+Usuarios - GET
+
+-- Auten/Verifc.
+
+Incluir a autenticação na aplicação a fim de que somente ADMINISTRADORES: (estilos musicais)
+
+- Cadastrar [ADM]
+- Atualizar [ADM]
+- Deletar [ADM]
+
+- A visibilidade para listar os artistas é pública. Não precisa de nenhuma restrição.
+
+Porém, qualquer usuário, contanto que esteja autenticado:
+
+- Listar estilos [COMUM]
+- Buscar por id. [COMUM]
