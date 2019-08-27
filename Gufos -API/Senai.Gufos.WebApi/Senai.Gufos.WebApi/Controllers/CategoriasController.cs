@@ -40,6 +40,7 @@ namespace Senai.Gufos.WebApi.Controllers
             }
         }
 
+        [Autorhize (Roles = "ADMINISTRADOR") ]
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int Id)
         {
