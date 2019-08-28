@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+<<<<<<< HEAD
 using Microsoft.AspNetCore.Authorization;
+=======
+>>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Optus.WebApi.Domains;
@@ -26,7 +29,10 @@ namespace Senai.Optus.WebApi.Controllers
             }
         }
 
+<<<<<<< HEAD
         [Authorize]
+=======
+>>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
         [HttpPost]
         public IActionResult Cadastrar(Artistas artista)
         {

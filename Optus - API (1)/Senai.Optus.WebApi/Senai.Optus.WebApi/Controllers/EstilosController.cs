@@ -40,6 +40,7 @@ namespace Senai.Optus.WebApi.Controllers
 
             }
             catch (Exception exe)
+<<<<<<< HEAD
             {
                 return BadRequest(new { mensagem = "Erro:" + exe.Message });
             }
@@ -59,6 +60,8 @@ namespace Senai.Optus.WebApi.Controllers
                 }
             }
             catch (Exception exe)
+=======
+>>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
             {
                 return BadRequest(new { mensagem = "Erro:" + exe.Message });
             }
@@ -66,6 +69,28 @@ namespace Senai.Optus.WebApi.Controllers
         }
 
         [Authorize(Roles = "ADMINISTRADOR")]
+<<<<<<< HEAD
+=======
+        [HttpPut]
+        public IActionResult Atualizar(Estilos estilo)
+        {
+            try
+            {
+                estilosRepository.Atualizar(estilo);
+                if (estilo == null)
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception exe)
+            {
+                return BadRequest(new { mensagem = "Erro:" + exe.Message });
+            }
+            return Ok();
+        }
+
+        [Authorize(Roles = "ADMINISTRADOR")]
+>>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
         [HttpDelete("{id}")]
         public IActionResult Deletar (int id)
         {
@@ -73,10 +98,18 @@ namespace Senai.Optus.WebApi.Controllers
             return Ok();
         }
 
+<<<<<<< HEAD
         [Authorize]
         [HttpGet ("{id}")]
         public IActionResult BuscarPorId(int id)
         {
+=======
+        // [Authorize]
+        [HttpGet ("{id}")]
+        public IActionResult BuscarPorId(int id)
+        {
+
+>>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
             Estilos estiloRetornado = estilosRepository.BuscarPorId(id);
             return Ok (estiloRetornado);
         }
