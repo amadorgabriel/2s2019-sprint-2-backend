@@ -23,8 +23,10 @@ namespace Senai.Optus.WebApi.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-               // optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_Optus;User Id=sa;Pwd=132");
-                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=T_Optus;Integrated Security=true;");
+                // optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_Optus;User Id=sa;Pwd=132");
+
+                //Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=T_SStop;Data Source=DESKTOP-JBDLFFG\MSSQLSERVER01
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_Optus;Integrated Security=SSPI;");
 
             }
         }
