@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -11,12 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using Senai.Optus.WebApi.Domains;
 using Senai.Optus.WebApi.Repositories;
 using Senai.Optus.WebApi.ViewModels;
-=======
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
->>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
+
 
 namespace Senai.Optus.WebApi.Controllers
 {
@@ -27,7 +21,6 @@ namespace Senai.Optus.WebApi.Controllers
     public class LoginController : ControllerBase
     {
 
-<<<<<<< HEAD
         UsuariosRepository usuariosRepository = new UsuariosRepository();
 
         public IActionResult Login(LoginViewModel login)
@@ -79,8 +72,8 @@ namespace Senai.Optus.WebApi.Controllers
                 return BadRequest(new { mensagem = "Erro ao Logar >:" + exe.Message });
             }
         }
-=======
->>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
+
+
 
     }
 }

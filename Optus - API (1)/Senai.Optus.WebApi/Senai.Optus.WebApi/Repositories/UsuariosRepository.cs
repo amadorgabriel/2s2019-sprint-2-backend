@@ -1,8 +1,5 @@
 ﻿using Senai.Optus.WebApi.Domains;
-<<<<<<< HEAD
 using Senai.Optus.WebApi.ViewModels;
-=======
->>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +14,6 @@ namespace Senai.Optus.WebApi.Repositories
             using(OptusContext ctx = new OptusContext())
             {
                 return ctx.Usuarios.ToList();
-<<<<<<< HEAD
             }   
         }
 
@@ -30,11 +26,7 @@ namespace Senai.Optus.WebApi.Repositories
                 return userRec;
             }
         }
-=======
-            }
-            
-        }
+         
 
->>>>>>> 264beac5f35dfad7b79e3808f1070681e6854605
     }
 }
