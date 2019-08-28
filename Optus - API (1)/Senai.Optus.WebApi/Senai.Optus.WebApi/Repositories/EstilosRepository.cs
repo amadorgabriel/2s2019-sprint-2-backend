@@ -21,7 +21,38 @@ namespace Senai.Optus.WebApi.Repositories
             using (OptusContext ctx = new OptusContext())
             {
                 ctx.Estilos.Add(estilo);
+                ctx.SaveChanges();
             }
         }
+
+        public void Atualizar(Estilos estilo)
+        {
+            using (OptusContext ctx = new OptusContext())
+            {
+                Estilos estiloBuscado = ctx.Estilos.FirstOrDefault( x => x.IdEstilo == estilo.IdEstilo );
+                estiloBuscado.Nome = estilo.Nome;
+                ctx.SaveChanges();
+            }
+        }
+
+        public void Deletar (int id)
+        {
+            using(OptusContext ctx = new OptusContext())
+            {
+                Estilos estiloRetornado = ctx.Estilos.Find(id);
+                ctx.Estilos.Remove(estiloRetornado);
+                ctx.SaveChanges();
+            }
+        }
+
+        public Estilos BuscarPorId(int id)
+        {
+            using(OptusContext ctx = new OptusContext())
+            {
+                Estilos estiloRetornado = ctx.Estilos.FirstOrDefault(x => x.IdEstilo == id);
+                return estiloRetornado;
+            }
+        }
+
     }
 }

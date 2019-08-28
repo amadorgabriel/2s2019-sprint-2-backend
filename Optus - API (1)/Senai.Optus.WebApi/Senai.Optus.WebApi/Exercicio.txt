@@ -1,25 +1,49 @@
+
+------------------------------------- PENDENTES Sg -----------------------------------------------
+
+
+Desafios Extras:
+
+Criar um endpoint para realizar a busca de artistas atravï¿½s do id do estilo.
+GET /api/estilos/{id}/artistas
+
+Criar um endpoint para realizar a busca de artistas atravï¿½s do nome do estilo.
+GET /api/estilos/buscar/{nome}/artistas
+
+Criar um endpoint para listar a quantidade de estilos disponï¿½veis.
+GET /api/estilos/quantidade
+
+Criar um endpoint para listar a quantidade de estilos e a quantidade de artistas disponï¿½veis.
+GET /api/admin/dashboard
+
+
+--------------------------------- FEITOS TF ------------------------------------------------
+
+
 Criar um projeto chamado Senai.Optus.WebApi.
 
 EF Core.
 Swagger.
-
------------------------ PENDENTES -------------------------------
-
 Postman.
 
 Estilos - GET, POST, PUT, DELETE
 Artistas - GET, POST
+Usuarios - GET
 
-Desafios Extras:
+-- Auten/Verifc.
 
-Criar um endpoint para realizar a busca de artistas através do id do estilo.
-GET /api/estilos/{id}/artistas
+Incluir a autenticaï¿½ï¿½o na aplicaï¿½ï¿½o a fim de que somente ADMINISTRADORES: (estilos musicais)
 
-Criar um endpoint para realizar a busca de artistas através do nome do estilo.
-GET /api/estilos/buscar/{nome}/artistas
+- Cadastrar [ADM]
+- Atualizar [ADM]
+- Deletar [ADM]
 
-Criar um endpoint para listar a quantidade de estilos disponíveis.
-GET /api/estilos/quantidade
+- A visibilidade para listar os artistas ï¿½ pï¿½blica. Nï¿½o precisa de nenhuma restriï¿½ï¿½o.
 
-Criar um endpoint para listar a quantidade de estilos e a quantidade de artistas disponíveis.
-GET /api/admin/dashboard
+Incluir a autenticaï¿½ï¿½o na aplicaï¿½ï¿½o a fim de que para CADASTRAR artistas:
+- Qualquer usuï¿½rio autenticado pode realizar a chamada.  [COMUM]
+
+Porï¿½m, qualquer usuï¿½rio, contanto que esteja autenticado:
+
+- Listar estilos [COMUM]
+- Buscar por id. [COMUM]

@@ -30,6 +30,7 @@ INSERT INTO Usuarios (Email, Senha, Permissao) VALUES ('comum@email.com', '12345
 
 SELECT * FROM Estilos;
 SELECT * FROM ARTISTAS;
+SELECT * FROM Usuarios;
 SELECT A.IdArtista, A.Nome, A.IdEstilo, E.Nome AS NomeEstilo FROM Artistas A INNER JOIN Estilos E ON A.IdEstilo = E.IdEstilo;
 SELECT * FROM Estilos FOR JSON AUTO; -- Óia
 
