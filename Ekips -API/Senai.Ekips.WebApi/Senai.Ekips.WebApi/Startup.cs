@@ -45,7 +45,7 @@ namespace Senai.Ekips.WebApi
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("aqui-fica-a-chave-autenticacao-para-o-token")),
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Chave_aqui")),
                     ClockSkew = TimeSpan.FromMinutes(30),
                     ValidIssuer = "Ekips.WebApi",
                     ValidAudience = "Ekips.WebApi"

@@ -24,7 +24,8 @@ namespace Senai.Ekips.WebApi.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_Ekips;User Id=sa;Pwd=132 ");
+                //optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_Ekips;User Id=sa;Pwd=132 ");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_Ekips;Integrated Security=SSPI;");
             }
         }
 

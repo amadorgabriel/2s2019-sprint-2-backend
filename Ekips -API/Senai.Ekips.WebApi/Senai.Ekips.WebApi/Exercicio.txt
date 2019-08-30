@@ -3,67 +3,73 @@
 Pode utilizar EFCore ou SQLClient.
 Swagger.
 
-
---------------------------- DOING ---------------------------
-
 Funcionarios
 GET /api/funcionarios
 POST /api/funcionarios
 PUT /api/funcionarios/{id}
 DELETE /api/funcionarios/{id}
+Estes endpoints sï¿½ podem ser acessados por usuï¿½rios ADMINISTRADORES.
 
-Departamentos
+Setores
 GET /api/departamentos
 GET /api/departamentos/{id}
 POST /api/departamentos
-Estes endpoints podem ser acessados por qualquer usuário que esteja autenticado.
+Estes endpoints podem ser acessados por qualquer usuï¿½rio que esteja autenticado.
 
 Cargos
 GET /api/cargos
+GET /api/cargos/{id}
+POST /api/cargos
+PUT /api/cargos/{id}
+Estes endpoints podem ser acessados por qualquer usuï¿½rio que esteja autenticado.
 
+
+
+
+
+--------------------------- DOING ---------------------------
+
+
+
+
+Ao trazer os funcionï¿½rios, apresentar tambï¿½m os cargos e os devdios departamentos.
+Mas tem UMA condiï¿½ï¿½o. Caso o usuï¿½rio COMUM esteja tentando acessar GET /api/funcionarios, 
+deverï¿½ retornar somente os dados dele mesmo, ou seja, suas prï¿½prias informaï¿½ï¿½es. 
+Caso contrï¿½rio, caso seja ADMINISTRADOR, listar todos os funcionï¿½rios. Sem regra.
+Atenï¿½ï¿½o: os endpoints de funcionï¿½rios sï¿½o os principais que vocï¿½ deverï¿½ desenvolver.
 
 
 --------------------------- PENDENTES ---------------------------
 
-GET /api/cargos/{id}
-POST /api/cargos
-PUT /api/cargos/{id}
-Estes endpoints podem ser acessados por qualquer usuário que esteja autenticado.
 
 
 
-Ao trazer os funcionários, apresentar também os cargos e os devdios departamentos. 
-Estes endpoints só podem ser acessados por usuários ADMINISTRADORES.
-Mas tem UMA condição. Caso o usuário COMUM esteja tentando acessar GET /api/funcionarios, 
-deverá retornar somente os dados dele mesmo, ou seja, suas próprias informações. 
-Caso contrário, caso seja ADMINISTRADOR, listar todos os funcionários. Sem regra.
-Atenção: os endpoints de funcionários são os principais que você deverá desenvolver.
 
 
 
 Postman.
-Documentação.
+Documentaï¿½ï¿½o.
 
-Detalhe: lembrar de incluir a autenticação/autorização (JWT);
+Detalhe: lembrar de incluir a autenticaï¿½ï¿½o/autorizaï¿½ï¿½o (JWT);
 
 
 ------ Desafios Extras :
 
-Somente usuário ADMINISTRADOR:
+Somente usuï¿½rio ADMINISTRADOR:
 
-Criar um endpoint para mostrar todos os funcionários de determinado departamento.
+Criar um endpoint para mostrar todos os funcionï¿½rios de determinado departamento.
 GET /api/departamentos/{id}/funcionarios
 
-Criar um endpoint para listar os dados dos funcionários e seus respectivos cargos e departamentos.
+Criar um endpoint para listar os dados dos funcionï¿½rios e seus respectivos cargos e departamentos.
 GET /api/funcionarios/dados
 
-Criar um endpoint para mostrar todos os funcionários com determinado cargo.
+Criar um endpoint para mostrar todos os funcionï¿½rios com determinado cargo.
 GET /api/cargos/{id}/funcionarios
 
-Criar um endpoint para pesquisar todos os funcionários de determinado cargo, porém, passando o nome do cargo.
+Criar um endpoint para pesquisar todos os funcionï¿½rios de determinado cargo, porï¿½m, passando o nome do cargo.
 GET /api/cargos/buscar/{nome}/funcionarios
 
-Criar um endpoint para, dado um determinado salário, apresentar todos os funcionarios com salario igual ou superior ao valor fornecido pelo usuário.
+Criar um endpoint para, dado um determinado salï¿½rio, apresentar todos os funcionarios com salario igual ou superior ao valor fornecido pelo usuï¿½rio.
 GET /api/funcionarios/{salario}/salarios
 
 Criar um endpoints para realizar a seguinte ordenacao. Primeiro, pelo item fornecido: Salario. Depois: ASC ou DESC.
@@ -72,11 +78,11 @@ GET /api/funcionarios/{coluna}/{ordem}
 Criar um endpoint para realizar a busca somente dos cargos ativo no sistema.
 GET /api/cargos/ativos
 
-Ao tentar cadastrar um funcionário e o usuário que está tentando cadastrar enviar um cargo ou setor que não existe, mostrar uma mensagem de erro.
+Ao tentar cadastrar um funcionï¿½rio e o usuï¿½rio que estï¿½ tentando cadastrar enviar um cargo ou setor que nï¿½o existe, mostrar uma mensagem de erro.
 
-Ao tentar cadastrar um funcionário, somente deixar cadastrar com um determinado cargo que estiver ativo. Caso esteja inativo, mostrar uma mensagem de erro.
+Ao tentar cadastrar um funcionï¿½rio, somente deixar cadastrar com um determinado cargo que estiver ativo. Caso esteja inativo, mostrar uma mensagem de erro.
 
 -- CorsPolicy()
 -- politica de mesma origem
 
------------------ DÚVIDAS -----------------
+----------------- Dï¿½VIDAS -----------------
