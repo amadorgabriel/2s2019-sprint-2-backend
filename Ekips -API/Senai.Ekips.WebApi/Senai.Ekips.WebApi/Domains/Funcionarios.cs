@@ -17,5 +17,7 @@ namespace Senai.Ekips.WebApi.Domains
         public Cargos IdCargoNavigation { get; set; }
         public Setores IdSetorNavigation { get; set; }
         public Usuarios IdUsuarioNavigation { get; set; }
+
+      
     }
 }

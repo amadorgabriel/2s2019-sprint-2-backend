@@ -10,20 +10,23 @@ using Senai.Ekips.WebApi.Repositories;
 
 namespace Senai.Ekips.WebApi.Controllers
 {
-    [Authorize (Roles = "ADMINISTRADOR")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class FuncionariosController : ControllerBase
     {
         FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
-        
+
+        [Authorize(Roles = "ADMINISTRADOR"), Authorize(Roles="COMUM")]
         [HttpGet]
         public IActionResult Listar()
         {
             return Ok(funcionarioRepository.Listar());
         }
 
+       
+
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPost]
         public IActionResult Cadastrar(Funcionarios func)
         {
@@ -36,6 +39,7 @@ namespace Senai.Ekips.WebApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, Funcionarios func)
         {
@@ -55,6 +59,7 @@ namespace Senai.Ekips.WebApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {

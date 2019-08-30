@@ -35,7 +35,7 @@ namespace Senai.Ekips.WebApi.Controllers
                     new Claim(ClaimTypes.Role, usuarioBuscado.Permissao),
                 };
 
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Chave_aqui"));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Chave_aqui_e_agora_nesse_instante"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -53,7 +53,7 @@ namespace Senai.Ekips.WebApi.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { mensagem = "Erro ao cadastrar." + ex.Message });
+                return BadRequest(new { mensagem = "Erro ao Logar." + ex.Message });
             }
 
         }

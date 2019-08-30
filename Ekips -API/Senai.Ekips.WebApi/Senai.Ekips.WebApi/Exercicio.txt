@@ -3,12 +3,6 @@
 Pode utilizar EFCore ou SQLClient.
 Swagger.
 
-Funcionarios
-GET /api/funcionarios
-POST /api/funcionarios
-PUT /api/funcionarios/{id}
-DELETE /api/funcionarios/{id}
-Estes endpoints s� podem ser acessados por usu�rios ADMINISTRADORES.
 
 Setores
 GET /api/departamentos
@@ -23,28 +17,28 @@ POST /api/cargos
 PUT /api/cargos/{id}
 Estes endpoints podem ser acessados por qualquer usu�rio que esteja autenticado.
 
-
+Funcionarios
+GET /api/funcionarios
+POST /api/funcionarios
+PUT /api/funcionarios/{id}
+DELETE /api/funcionarios/{id}
+Estes endpoints s� podem ser acessados por usu�rios ADMINISTRADORES.
+Aten��o: os endpoints de funcion�rios s�o os principais que voc� dever� desenvolver.
+Ao trazer os funcion�rios, apresentar tamb�m os cargos e os devdos departamentos.
+- AEEEEEEEE POXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 
 --------------------------- DOING ---------------------------
 
 
-
-
-Ao trazer os funcion�rios, apresentar tamb�m os cargos e os devdios departamentos.
 Mas tem UMA condi��o. Caso o usu�rio COMUM esteja tentando acessar GET /api/funcionarios, 
+
 dever� retornar somente os dados dele mesmo, ou seja, suas pr�prias informa��es. 
 Caso contr�rio, caso seja ADMINISTRADOR, listar todos os funcion�rios. Sem regra.
-Aten��o: os endpoints de funcion�rios s�o os principais que voc� dever� desenvolver.
 
 
 --------------------------- PENDENTES ---------------------------
-
-
-
-
-
 
 
 Postman.

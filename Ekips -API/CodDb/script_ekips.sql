@@ -77,3 +77,9 @@ SELECT * FROM Cargos ORDER BY IdCargo;
 SELECT * FROM Setores ORDER BY IdSetor;
 SELECT * FROM Usuarios ORDER BY IdUsuario;
 SELECT * FROM Funcionarios ORDER BY IdFuncionario;
+
+SELECT Funcionarios.IdFuncionario, Funcionarios.Nome, Funcionarios.Cpf, Funcionarios.DataNascimento, Funcionarios.Salario,
+Cargos.Nome as NomeCargo, Cargos.Ativo, Setores.IdSetor, Setores.Nome as NomeSetor
+FROM Funcionarios 
+JOIN Cargos ON Funcionarios.IdCargo = Cargos.IdCargo
+JOIN Setores ON Funcionarios.IdSetor = Setores.IdSetor
