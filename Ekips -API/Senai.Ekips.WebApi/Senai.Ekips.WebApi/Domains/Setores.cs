@@ -13,6 +13,5 @@ namespace Senai.Ekips.WebApi.Domains
         public int IdSetor { get; set; }
         public string Nome { get; set; }
 
-        public ICollection<Funcionarios> Funcionarios { get; set; }
     }
 }

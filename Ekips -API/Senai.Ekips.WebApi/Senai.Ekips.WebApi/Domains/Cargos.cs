@@ -14,11 +14,6 @@ namespace Senai.Ekips.WebApi.Domains
         public string Nome { get; set; }
         public bool? Ativo { get; set; }
 
-        public ICollection<Funcionarios> Funcionarios { get; set; }
-
-        public static explicit operator Cargos(Funcionarios v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

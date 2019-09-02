@@ -68,18 +68,37 @@ INSERT INTO Usuarios (Email, Senha, Permissao) VALUES
 INSERT INTO Funcionarios (Nome, Cpf, DataNascimento, Salario, IdCargo, IdSetor, IdUsuario) VALUES
 	('Gabriel Rodrigues Amador', '44680781890', '25/09/2003',2500, 5, 2, 1 );
 
+INSERT INTO Funcionarios (Nome, Cpf, DataNascimento, Salario, IdCargo, IdSetor, IdUsuario) VALUES
+	('José do Mato', '12334556778', '11/02/2000',1800, 2, 1, 4 ),
+	('Só mais um Silva', '9518457624', '22/01/2017',600, 3, 2, 3 );
+
 
 DELETE FROM Cargos;
 
 --					DQL
 
-SELECT * FROM Cargos ORDER BY IdCargo;
-SELECT * FROM Setores ORDER BY IdSetor;
-SELECT * FROM Usuarios ORDER BY IdUsuario;
-SELECT * FROM Funcionarios ORDER BY IdFuncionario;
+SELECT * FROM Cargos ORDER BY IdCargo ASC;
+SELECT * FROM Setores ORDER BY IdSetor DESC;
+SELECT * FROM Usuarios ORDER BY IdUsuario ASC;
+SELECT * FROM Funcionarios ORDER BY IdFuncionario ASC;
 
-SELECT Funcionarios.IdFuncionario, Funcionarios.Nome, Funcionarios.Cpf, Funcionarios.DataNascimento, Funcionarios.Salario,
-Cargos.Nome as NomeCargo, Cargos.Ativo, Setores.IdSetor, Setores.Nome as NomeSetor
-FROM Funcionarios 
-JOIN Cargos ON Funcionarios.IdCargo = Cargos.IdCargo
+SELECT * FROM Cargos WHERE Ativo = 1 ORDER BY IdCargo;
+
+SELECT Funcionarios.IdFuncionario, Funcionarios.Nome, Funcionarios.Cpf, Funcionarios.DataNascimento, Funcionarios.Salario, 
+Cargos.IdCargo, Cargos.Nome as NomeCargo, Cargos.Ativo, Setores.IdSetor, Setores.Nome as NomeSetor
+FROM Funcionarios
+JOIN Cargos ON Funcionarios.IdCargo = Cargos.IdCargo 
 JOIN Setores ON Funcionarios.IdSetor = Setores.IdSetor
+
+SELECT * FROM Funcionarios WHERE IdSetor = 1;
+SELECT * FROM Funcionarios WHERE IdCargo = 2;
+
+SELECT Funcionarios.IdFuncionario, Funcionarios.Nome, Funcionarios.Cpf, Funcionarios.DataNascimento, Funcionarios.Salario, 
+Cargos.IdCargo, Cargos.Nome as NomeCargo, Cargos.Ativo
+FROM Funcionarios
+JOIN Cargos ON Funcionarios.IdCargo = Cargos.IdCargo 
+WHERE Cargos.Nome LIKE '%Dev%';
+
+SELECT Funcionarios.IdFuncionario, Funcionarios.Nome, Funcionarios.Cpf, Funcionarios.DataNascimento, Funcionarios.Salario FROM Funcionarios WHERE Salario >= 1000
+
+

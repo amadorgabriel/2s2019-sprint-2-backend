@@ -24,8 +24,8 @@ namespace Senai.Ekips.WebApi.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_Ekips;User Id=sa;Pwd=132");
-                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_Ekips;Integrated Security=SSPI;");
+                //optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_Ekips;User Id=sa;Pwd=132");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_Ekips;Integrated Security=SSPI;");
             }
         }
 
@@ -66,16 +66,6 @@ namespace Senai.Ekips.WebApi.Domains
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.IdCargoNavigation)
-                    .WithMany(p => p.Funcionarios)
-                    .HasForeignKey(d => d.IdCargo)
-                    .HasConstraintName("FK__Funcionar__IdCar__5441852A");
-
-                entity.HasOne(d => d.IdSetorNavigation)
-                    .WithMany(p => p.Funcionarios)
-                    .HasForeignKey(d => d.IdSetor)
-                    .HasConstraintName("FK__Funcionar__IdSet__5535A963");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Funcionarios)

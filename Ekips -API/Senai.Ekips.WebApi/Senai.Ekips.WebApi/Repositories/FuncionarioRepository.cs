@@ -4,60 +4,26 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Senai.Ekips.WebApi.Repositories
 {
     public class FuncionarioRepository
     {
-        string StringConnection = "Data Source=.\\SqlExpress; Initial Catalog=T_Ekips;User Id=sa;Pwd=132";
+        //string StringConnection = "Data Source=.\\SqlExpress; Initial Catalog=T_Ekips;User Id=sa;Pwd=132";
+        string StringConnection = "Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_Ekips;Integrated Security=SSPI;";
 
         public List<Funcionarios> Listar()
         {
-            //Ao trazer os funcionários, apresentar também os cargos e os devdios departamentos
-            // EkipsContext ctx = new EkipsContext();
-            // return ctx.Funcionarios.Include(func => func.IdCargoNavigation).Include(func => func.IdSetorNavigation).ToList();
+            EkipsContext ctx = new EkipsContext();
+            return ctx.Funcionarios.Include(func => func.IdCargoNavigation).Include(func => func.IdSetorNavigation).ToList();
+        }
 
-            List<Funcionarios> funcLs = new List<Funcionarios>();
-
-            SqlConnection con = new SqlConnection(StringConnection);
-            con.Open();
-            string Query = "SELECT Funcionarios.IdFuncionario, Funcionarios.Nome, Funcionarios.Cpf, Funcionarios.DataNascimento, Funcionarios.Salario, Cargos.IdCargo, Cargos.Nome as NomeCargo, Cargos.Ativo, Setores.IdSetor, Setores.Nome as NomeSetor FROM Funcionarios JOIN Cargos ON Funcionarios.IdCargo = Cargos.IdCargo JOIN Setores ON Funcionarios.IdSetor = Setores.IdSetor";
-            SqlCommand cmd = new SqlCommand(Query, con);
-            SqlDataReader sdr = cmd.ExecuteReader();
-
-            if (sdr.HasRows)
-            {
-                while (sdr.Read())
-                {
-                    Console.WriteLine("AAA");
-
-                    Funcionarios func = new Funcionarios
-                    {
-                        IdFuncionario = Convert.ToInt32(sdr["IdFuncionario"]),
-                        Nome = sdr["Nome"].ToString(),
-                        Cpf = sdr["Cpf"].ToString(),
-                        DataNascimento = Convert.ToDateTime(sdr["DataNascimento"]),
-                        Salario = Convert.ToInt32(sdr["Salario"]),
-                        IdCargo = Convert.ToInt32(sdr["IdCargo"]),
-                        IdSetor = Convert.ToInt32(sdr["IdSetor"]),
-                        IdCargoNavigation = new Cargos
-                        {
-                            IdCargo = Convert.ToInt32(sdr["IdCargo"]),
-                            Nome = sdr["NomeCargo"].ToString(),
-                            Ativo = Convert.ToBoolean(sdr["Ativo"])
-                        },
-                        IdSetorNavigation = new Setores
-                        {
-                            IdSetor = Convert.ToInt32(sdr["IdSetor"]),
-                            Nome = sdr["NomeSetor"].ToString()
-                        }
-                    };
-                    funcLs.Add(func);
-                }
-            }
-
-            return funcLs;
+        public Funcionarios BuscarPorId(int id)
+        {
+            EkipsContext ctx = new EkipsContext();
+            return ctx.Funcionarios.Find(id);
 
         }
 
@@ -90,5 +56,62 @@ namespace Senai.Ekips.WebApi.Repositories
             ctx.Remove(funcRetornado);
             ctx.SaveChanges();
         }
+
+
+        public List<Funcionarios> BuscarPorSalarioIgualOuMaior(int valor)
+        {
+
+            var funcLs = new List<Funcionarios>();
+
+            SqlConnection con = new SqlConnection(StringConnection);
+            string Query = "SELECT Funcionarios.IdFuncionario, Funcionarios.Nome, Funcionarios.Cpf, Funcionarios.DataNascimento, Funcionarios.Salario FROM Funcionarios WHERE Salario >= @Valor";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.Parameters.AddWithValue("@Valor", valor);
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            while (sdr.Read())
+            {
+                Funcionarios func = new Funcionarios
+                {
+                    IdFuncionario = Convert.ToInt32(sdr["IdFuncionario"]),
+                    Nome = sdr["Nome"].ToString(),
+                    Cpf = sdr["Cpf"].ToString(),
+                    DataNascimento = Convert.ToDateTime(sdr["DataNascimento"]),
+                    Salario = Convert.ToInt32(sdr["Salario"]),
+                };
+                funcLs.Add(func);
+            }
+            return funcLs;
+
+        }
+
+        // public List<Funcionarios> BuscarEntidadeFuncionario (string ordem)
+        // {
+        //     var funcLs = new List<Funcionarios>();
+
+        //     SqlConnection con = new SqlConnection(StringConnection);
+        //     string Query = "SELECT * FROM Funcionarios ORDER BY IdFuncionario @ordem";
+        //     con.Open();
+        //     SqlCommand cmd = new SqlCommand(Query, con);
+        //     cmd.Parameters.AddWithValue("@ordem", ordem);
+        //     SqlDataReader sdr = cmd.ExecuteReader();
+
+        //     while (sdr.Read())
+        //     {
+        //         Funcionarios func = new Funcionarios
+        //         {
+        //             IdFuncionario = Convert.ToInt32(sdr["IdFuncionario"]),
+        //             Nome = sdr["Nome"].ToString(),
+        //             Cpf = sdr["Cpf"].ToString(),
+        //             DataNascimento = Convert.ToDateTime(sdr["DataNascimento"]),
+        //             Salario = Convert.ToInt32(sdr["Salario"]),
+        //         };
+        //         funcLs.Add(func);
+        //     }
+        //     return funcLs;
+
+        // }
+
     }
 }

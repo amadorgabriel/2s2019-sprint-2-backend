@@ -22,23 +22,28 @@ namespace Senai.Ekips.WebApi.Controllers
         {
             try
             {
+                //busquei por email
                 Usuarios usuarioBuscado = UsuarioRepository.BuscarPorEmailSenha(log);
                 if (usuarioBuscado == null)
                 {
                     return NotFound();
                 }
 
-                var claims = new[]
-                              {
+
+                //gerei declarações do meu token, meio que customizei ele
+                var claims = new[]{
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(ClaimTypes.Role, usuarioBuscado.Permissao),
                 };
 
+                //criei uma chave de seguramça e a configurei
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Chave_aqui_e_agora_nesse_instante"));
 
+                // fiz alguma parada que não entendi
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+                // na real, aqui eu realmente crei meu token e configurei ele
                 var token = new JwtSecurityToken(
                     issuer: "Ekips.WebApi",
                     audience: "Ekips.WebApi",
@@ -46,6 +51,7 @@ namespace Senai.Ekips.WebApi.Controllers
                     expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: creds);
 
+                //pois então me dispus a configurá-lo
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token)

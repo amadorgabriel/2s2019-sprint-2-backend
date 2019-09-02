@@ -44,5 +44,13 @@ namespace Senai.Ekips.WebApi.Controllers
             return Ok();
         }
 
+        [Authorize (Roles = "ADMINISTRADOR")]
+        [HttpGet("{id}/funcionarios")]
+        public IActionResult ListarFuncionariosPorIdDepartamento(int id){
+            var listaFunc = setoresRepository.ListarFuncionariosPorIdDepartamento(id);
+            return Ok(listaFunc);
+        }
+
+
     }
 }

@@ -1,82 +1,14 @@
------------------------------------ REALIZADOS -----------------------------------
-
-Pode utilizar EFCore ou SQLClient.
-Swagger.
 
 
-Setores
-GET /api/departamentos
-GET /api/departamentos/{id}
-POST /api/departamentos
-Estes endpoints podem ser acessados por qualquer usu�rio que esteja autenticado.
+------ Desafios Extras - Somente usu�rio ADMINISTRADOR :
 
-Cargos
-GET /api/cargos
-GET /api/cargos/{id}
-POST /api/cargos
-PUT /api/cargos/{id}
-Estes endpoints podem ser acessados por qualquer usu�rio que esteja autenticado.
-
-Funcionarios
-GET /api/funcionarios
-POST /api/funcionarios
-PUT /api/funcionarios/{id}
-DELETE /api/funcionarios/{id}
-Estes endpoints s� podem ser acessados por usu�rios ADMINISTRADORES.
-Aten��o: os endpoints de funcion�rios s�o os principais que voc� dever� desenvolver.
-Ao trazer os funcion�rios, apresentar tamb�m os cargos e os devdos departamentos.
-- AEEEEEEEE POXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-
-
---------------------------- DOING ---------------------------
-
-
-Mas tem UMA condi��o. Caso o usu�rio COMUM esteja tentando acessar GET /api/funcionarios, 
-
-dever� retornar somente os dados dele mesmo, ou seja, suas pr�prias informa��es. 
-Caso contr�rio, caso seja ADMINISTRADOR, listar todos os funcion�rios. Sem regra.
-
-
---------------------------- PENDENTES ---------------------------
-
-
-Postman.
-Documenta��o.
-
-Detalhe: lembrar de incluir a autentica��o/autoriza��o (JWT);
-
-
------- Desafios Extras :
-
-Somente usu�rio ADMINISTRADOR:
-
-Criar um endpoint para mostrar todos os funcion�rios de determinado departamento.
-GET /api/departamentos/{id}/funcionarios
-
-Criar um endpoint para listar os dados dos funcion�rios e seus respectivos cargos e departamentos.
-GET /api/funcionarios/dados
-
-Criar um endpoint para mostrar todos os funcion�rios com determinado cargo.
-GET /api/cargos/{id}/funcionarios
-
-Criar um endpoint para pesquisar todos os funcion�rios de determinado cargo, por�m, passando o nome do cargo.
-GET /api/cargos/buscar/{nome}/funcionarios
-
-Criar um endpoint para, dado um determinado sal�rio, apresentar todos os funcionarios com salario igual ou superior ao valor fornecido pelo usu�rio.
-GET /api/funcionarios/{salario}/salarios
-
-Criar um endpoints para realizar a seguinte ordenacao. Primeiro, pelo item fornecido: Salario. Depois: ASC ou DESC.
+Criar um endpoints para realizar a seguinte ordenacao. Primeiro, pelo item fornecido: Salario. Depois: 
+ASC ou DESC.
 GET /api/funcionarios/{coluna}/{ordem}
 
-Criar um endpoint para realizar a busca somente dos cargos ativo no sistema.
-GET /api/cargos/ativos
+----------------- D�VIDAS -----------------
 
-Ao tentar cadastrar um funcion�rio e o usu�rio que est� tentando cadastrar enviar um cargo ou setor que n�o existe, mostrar uma mensagem de erro.
-
-Ao tentar cadastrar um funcion�rio, somente deixar cadastrar com um determinado cargo que estiver ativo. Caso esteja inativo, mostrar uma mensagem de erro.
+Documenta��o.
 
 -- CorsPolicy()
 -- politica de mesma origem
-
------------------ D�VIDAS -----------------
