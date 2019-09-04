@@ -1,44 +1,49 @@
+﻿using Senai.AutoPecas.WebApi.Domains;
+using Senai.AutoPecas.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Security.Claims;
-using Senai.AutoPecas.WebApi.Domains;
-using Senai.Ekips.WebApi.Domains;
+using System.Threading.Tasks;
 
-namespace Senai.Ekips.WebApi.Repositories
+namespace Senai.AutoPecas.WebApi.Repositories
 {
-    public class PecaRepository
+    public class PecaRepository : IPecasRepository
     {
-        //string StringConnection = "Data Source=.\\SqlExpress; Initial Catalog=T_Ekips;User Id=sa;Pwd=132";
+        public AutoPecasContext ctx = new AutoPecasContext();
 
-        public SqlConnection con = new SqlConnection("Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_AutoPecas;Integrated Security=SSPI;");
-
-        public List<PecasDomain> Listar()
+        public void Atualizar(int Id, Pecas peca)
         {
-            List<PecasDomain> pecasLs = new List<PecasDomain>();
-            con.Open();
-            string Query = "SELECT * FROM Pecas ORDER BY IdPeca";
-            SqlCommand cmd = new SqlCommand(Query, con);
-            SqlDataReader sdr = cmd.ExecuteReader();
-            while (sdr.Read())
-            {
-                PecasDomain peca = new PecasDomain
-                {
-                    IdPeca = Convert.ToInt32(sdr["IdPeca"]),
-                    CodigoPeca = sdr["CodigoPeca"].ToString(),
-                    Descricao = sdr["Descricao"].ToString(),
-                    Peso = Convert.ToInt32(sdr["Peso"]),
-                    PrecoCusto = Convert.ToInt32(sdr["PrecoCusto"]),
-                    PrecoVenda = Convert.ToInt32(sdr["PrecoVenda"]),
-                    IdFornecedor = Convert.ToInt32(sdr["IdFornecedor"]),
-                };
-                pecasLs.Add(peca);
-            }
-            return pecasLs;
+            Pecas pecaReturn = ctx.Pecas.FirstOrDefault(p => p.IdPeca == Id);
+            pecaReturn.CodigoPeca = peca.CodigoPeca;
+            pecaReturn.Descricao = peca.Descricao;
+            pecaReturn.IdFornecedor = peca.IdFornecedor;
+            pecaReturn.Peso = peca.Peso;
+            pecaReturn.PrecoCusto = pecaReturn.PrecoCusto;
+            pecaReturn.PrecoVenda = pecaReturn.PrecoVenda;
+            ctx.SaveChanges();
         }
 
+        public Pecas BuscarPorId(int id)
+        {
+            return ctx.Pecas.Find(id);
+        }
 
+        public void Cadastrar(Pecas peca)
+        {
+            ctx.Pecas.Add(peca);
+            ctx.SaveChanges();
+        }
 
+        public void Deletar(int Id)
+        {
+            Pecas pecaReturn = ctx.Pecas.Find(Id);
+            ctx.Pecas.Remove(pecaReturn);
+            ctx.SaveChanges();
+        }
+
+        public List<Pecas> Listar()
+        {
+            return ctx.Pecas.ToList();
+        }
     }
 }

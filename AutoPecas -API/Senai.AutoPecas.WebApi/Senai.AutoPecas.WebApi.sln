@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Senai.Ekips.WebApi", "Senai.Ekips.WebApi\Senai.Ekips.WebApi.csproj", "{2206766B-9A4D-464B-9FF7-B85C0DCB1F96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Senai.AutoPecas.WebApi", "Senai.AutoPecas.WebApi\Senai.AutoPecas.WebApi.csproj", "{32D842CA-A380-42CF-84B8-D8446DBD6E6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2206766B-9A4D-464B-9FF7-B85C0DCB1F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2206766B-9A4D-464B-9FF7-B85C0DCB1F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2206766B-9A4D-464B-9FF7-B85C0DCB1F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2206766B-9A4D-464B-9FF7-B85C0DCB1F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D842CA-A380-42CF-84B8-D8446DBD6E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D842CA-A380-42CF-84B8-D8446DBD6E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D842CA-A380-42CF-84B8-D8446DBD6E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D842CA-A380-42CF-84B8-D8446DBD6E6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {276649D4-C5AC-4D7D-8B4B-74734117DFA9}
+		SolutionGuid = {20E92DDB-B139-49EB-BADA-7E22EBD54BC1}
 	EndGlobalSection
 EndGlobal

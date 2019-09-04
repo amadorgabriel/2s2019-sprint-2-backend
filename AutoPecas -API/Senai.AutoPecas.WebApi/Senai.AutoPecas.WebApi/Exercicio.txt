@@ -1,37 +1,34 @@
 
-+ BackEnd
-Dever√° conter os seguintes endpoints:
 
-GET /api/pecas
-GET /api/pecas/{id}
-POST /api/pecas
-PUT /api/pecas/{id}
-DELETE /api/pecas/{id}
+- Quando os fornecedores listarem as peÁas, dever„o listar somente as suas.
+-- Por exemplo, quando o Fornecedor A cadastrar a 'PeÁa 1' e a 'PeÁa 2' e o Fornecedor B cadastrar a 'PeÁa 3' e 'PeÁa 4', ao Fornecedor A solicitar a lista de peÁas, dever· aparecer somente as PeÁas: 1 e 2.
 
-Lembre-se de algo: caso o fornecedor tente atualizar uma pe√ßa que n√£o lhe pertence, dever√° retornar um erro, pois ele n√£o possui acesso √†quela pe√ßa.
+Lembre-se de algo: caso o fornecedor tente atualizar uma peÁa que n„o lhe pertence, dever· retornar um erro, pois ele n„o possui acesso ‡quela peÁa.
 
-Lembrar de incluir o swagger e lembrar de colocar mais um endpoint para gerar o token e outro para cadastrar novos usu√°rios.
-Lembre-se de limitar os endpoints para que somente usu√°rios autenticados e autorizados realizem a listagem, cadastro e afins.
 
-Dever√° ser entregue em um reposit√≥rio do github e incluir o link na planilha disponibilizada para que voc√™s coloquem na coluna correspondente (AutoPe√ßas).
+Dever· ser entregue em um repositÛrio do github e incluir o link na planilha disponibilizada para que vocÍs coloquem na coluna correspondente (AutoPeÁas).
+
+
+----------------------------------------------------------------------------------------------------
 
 Dados a serem entregues:
-- BD
-- BackEnd
-- Swagger
+- BD -> ALL
+- Swagger -> ALL
+
 - Postman
 - GitHub
+- BackEnd -> DOING
 
 + Desafios Extras
 
-Disponibilizar um endpoint para que seja mostrado o valor de ganho que a autope√ßas ir√° obter calculando o pre√ßo de venda sob o pre√ßo de custo. Mostrar a porcentagem e um outro campo mostrando a diferen√ßa em reais entre um e outro.
+Disponibilizar um endpoint para que seja mostrado o valor de ganho que a autopeÁas ir· obter calculando o preÁo de venda sob o preÁo de custo. Mostrar a porcentagem e um outro campo mostrando a diferenÁa em reais entre um e outro.
 GET /api/pecas/precos
 
-Disponibilizar um endpoint p√∫blico para que seja apresentado os dados de todos os fornecedores.
+Disponibilizar um endpoint p˙blico para que seja apresentado os dados de todos os fornecedores.
 GET /api/fornecedores
 
-Disponibilizar um endpoint p√∫blico para que seja apresentado os dados de todos os usu√°rios, mas com um detalhe: a senha n√£o dever√° ser mostrada.
+Disponibilizar um endpoint p˙blico para que seja apresentado os dados de todos os usu·rios, mas com um detalhe: a senha n„o dever· ser mostrada.
 GET /api/usuarios
 
-Disponibilizar um endpoint para que ao enviar a quantidade de itens e o id da pe√ßa, seja calculado o valor total e este valor seja retornado.
+Disponibilizar um endpoint para que ao enviar a quantidade de itens e o id da peÁa, seja calculado o valor total e este valor seja retornado.
 POST /api/pecas/calcular

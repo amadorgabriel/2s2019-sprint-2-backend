@@ -1,30 +1,98 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Senai.Ekips.WebApi.Domains;
-using Senai.Ekips.WebApi.Repositories;
+using Senai.AutoPecas.WebApi.Domains;
+using Senai.AutoPecas.WebApi.Interfaces;
+using Senai.AutoPecas.WebApi.Repositories;
 
-namespace Senai.Ekips.WebApi.Controllers
+namespace Senai.AutoPecas.WebApi.Controllers
 {
-    [Produces("application/json")]
+    [Produces ("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-
     public class PecasController : ControllerBase
     {
-        public PecaRepository pecaRepository = new PecaRepository();
 
+        private IPecasRepository PecasInterface { get; set; }
+        private IFornecedorRepository FornecedorInterface { get; set; }
+
+
+        public PecasController ()
+        {
+            PecasInterface = new PecaRepository();
+            FornecedorInterface = new FornecedorRepository();
+        }
+
+        [Authorize]
         [HttpGet]
         public IActionResult Listar()
         {
-            var listaPecas = pecaRepository.Listar();
-            return Ok(listaPecas);
+            //pegar o dado do token [IdUsuario]
+            int IdUser = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
+            //pelo IdUsuario descobrir o Fornecedor
+            Fornecedores fornecedor = FornecedorInterface.BuscarPorIdUsuario(IdUser);
+            //listar pecas quando Idfornecedor for igual
+            // PAREI AQUI
+            return Ok(PecasInterface.Listar());
         }
 
+        [Authorize]
+        [HttpGet("{id}")]
+        public IActionResult BuscarPorid(int id)
+        {
+            return Ok(PecasInterface.BuscarPorId(id));
+        }
 
+        [Authorize]
+        [HttpPost]
+        public IActionResult Casdastrar(Pecas peca)
+        {
+            try
+            {
+                PecasInterface.Cadastrar(peca);
+                return Ok();
+
+            }catch(Exception exe)
+            {
+                return BadRequest(new { mensagem = "Algum dado incorreto" + exe.Message });
+            }
+        }
+
+        [Authorize]
+        [HttpPut("{id}")]
+        public IActionResult Atualizar(int id, Pecas peca)
+        {
+            try
+            {
+                PecasInterface.Atualizar(id, peca);
+                return Ok();
+
+            }
+            catch (Exception exe)
+            {
+                return BadRequest(new { mensagem = "Algum dado incorreto ou nulo" + exe.Message });
+            }
+        }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                PecasInterface.Deletar(id);
+                return Ok();
+
+            }
+            catch (Exception exe)
+            {
+                return BadRequest(new { mensagem = "Peça Inexistente" + exe.Message });
+            }
+        }
     }
 }
