@@ -1,12 +1,5 @@
-
-
-- Quando os fornecedores listarem as peças, deverão listar somente as suas.
--- Por exemplo, quando o Fornecedor A cadastrar a 'Peça 1' e a 'Peça 2' e o Fornecedor B cadastrar a 'Peça 3' e 'Peça 4', ao Fornecedor A solicitar a lista de peças, deverá aparecer somente as Peças: 1 e 2.
-
-Lembre-se de algo: caso o fornecedor tente atualizar uma peça que não lhe pertence, deverá retornar um erro, pois ele não possui acesso àquela peça.
-
-
-Deverá ser entregue em um repositório do github e incluir o link na planilha disponibilizada para que vocês coloquem na coluna correspondente (AutoPeças).
+Deverï¿½ ser entregue em um repositï¿½rio do github e incluir o link na planilha disponibilizada
+ para que vocï¿½s coloquem na coluna correspondente (AutoPeï¿½as).
 
 
 ----------------------------------------------------------------------------------------------------
@@ -14,21 +7,22 @@ Deverá ser entregue em um repositório do github e incluir o link na planilha dis
 Dados a serem entregues:
 - BD -> ALL
 - Swagger -> ALL
-
-- Postman
-- GitHub
+- GitHub -> ALL
+- Postman -> ALL
 - BackEnd -> DOING
 
 + Desafios Extras
 
-Disponibilizar um endpoint para que seja mostrado o valor de ganho que a autopeças irá obter calculando o preço de venda sob o preço de custo. Mostrar a porcentagem e um outro campo mostrando a diferença em reais entre um e outro.
+Disponibilizar um endpoint para que seja mostrado o valor de ganho que a autopeï¿½as irï¿½ obter 
+calculando o preï¿½o de venda sob o preï¿½o de custo. Mostrar a porcentagem e um outro campo mostrando 
+a diferenï¿½a em reais entre um e outro.
 GET /api/pecas/precos
 
-Disponibilizar um endpoint público para que seja apresentado os dados de todos os fornecedores.
-GET /api/fornecedores
 
-Disponibilizar um endpoint público para que seja apresentado os dados de todos os usuários, mas com um detalhe: a senha não deverá ser mostrada.
+Disponibilizar um endpoint pï¿½blico para que seja apresentado os dados de todos os usuï¿½rios, mas com
+um detalhe: a senha nï¿½o deverï¿½ ser mostrada.
 GET /api/usuarios
 
-Disponibilizar um endpoint para que ao enviar a quantidade de itens e o id da peça, seja calculado o valor total e este valor seja retornado.
+Disponibilizar um endpoint para que ao enviar a quantidade de itens e o id da peï¿½a, seja calculado 
+o valor total e este valor seja retornado.
 POST /api/pecas/calcular

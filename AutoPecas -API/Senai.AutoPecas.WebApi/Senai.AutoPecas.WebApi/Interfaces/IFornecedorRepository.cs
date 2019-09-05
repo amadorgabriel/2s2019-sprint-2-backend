@@ -9,5 +9,6 @@ namespace Senai.AutoPecas.WebApi.Interfaces
     public interface IFornecedorRepository
     {
         Fornecedores BuscarPorIdUsuario(int id);
+        List<Fornecedores> ListarDados();
     }
 }

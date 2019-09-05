@@ -38,8 +38,6 @@ namespace Senai.AutoPecas.WebApi.Controllers
                     return NotFound(new { mensagem = "O usuário não existe na nossa base de dados" });
                 }
 
-                Fornecedores fornecedor;
-
                 var claims = new[]
                 {
                 new Claim(JwtRegisteredClaimNames.Email, userReturn.Email),

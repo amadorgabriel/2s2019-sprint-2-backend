@@ -1,4 +1,5 @@
-﻿using Senai.AutoPecas.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.AutoPecas.WebApi.Domains;
 using Senai.AutoPecas.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,11 @@ namespace Senai.AutoPecas.WebApi.Repositories
         {
             Fornecedores fornecedor = ctx.Fornecedores.FirstOrDefault(f => f.IdUsuario == id);
             return fornecedor;
+        }
+
+        public List<Fornecedores> ListarDados()
+        {
+            return ctx.Fornecedores.Include(f => f.Pecas).ToList();
         }
     }
 }

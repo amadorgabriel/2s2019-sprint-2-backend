@@ -66,4 +66,8 @@ INSERT INTO Pecas (CodigoPeca, Descricao,Peso, PrecoCusto, PrecoVenda, IdFornece
 SELECT * FROM Usuarios ORDER BY IdUsuario;
 SELECT * FROM Pecas ORDER BY IdPeca;
 SELECT * FROM Fornecedores ORDER BY IdFornecedor;
+SELECT * FROM Pecas WHERE IdFornecedor = 1;
+
+SELECT IdUsuario, Email FROM Usuarios;
+-- select * from Usuarios(DROP=Senha); 
 

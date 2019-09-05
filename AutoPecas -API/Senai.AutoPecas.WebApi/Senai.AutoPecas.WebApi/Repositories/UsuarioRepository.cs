@@ -1,4 +1,5 @@
-﻿using Senai.AutoPecas.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.AutoPecas.WebApi.Domains;
 using Senai.AutoPecas.WebApi.Interfaces;
 using Senai.AutoPecas.WebApi.ViewModels;
 using System;
@@ -19,6 +20,9 @@ namespace Senai.AutoPecas.WebApi.Repositories
             return userReturn;
         }
 
-
+        public List<Usuarios> ListarDados()
+        {
+            return ctx.Usuarios.FromSql("SELECT * FROM Usuarios").ToList();
+        }
     }
 }

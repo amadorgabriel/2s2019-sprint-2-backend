@@ -1,11 +1,12 @@
-﻿using Senai.AutoPecas.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.AutoPecas.WebApi.Domains;
 using Senai.AutoPecas.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senai.AutoPecas.WebApi.Repositories
+ namespace Senai.AutoPecas.WebApi.Repositories
 {
     public class PecaRepository : IPecasRepository
     {
@@ -41,9 +42,9 @@ namespace Senai.AutoPecas.WebApi.Repositories
             ctx.SaveChanges();
         }
 
-        public List<Pecas> Listar()
+        public List<Pecas> Listar(Fornecedores fornecedor)
         {
-            return ctx.Pecas.ToList();
+            return ctx.Pecas.FromSql("SELECT * FROM Pecas WHERE IdFornecedor =" + fornecedor.IdFornecedor).ToList();
         }
     }
 }

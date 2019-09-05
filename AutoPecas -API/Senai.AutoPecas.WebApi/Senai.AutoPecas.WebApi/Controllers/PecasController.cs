@@ -12,7 +12,7 @@ using Senai.AutoPecas.WebApi.Repositories;
 
 namespace Senai.AutoPecas.WebApi.Controllers
 {
-    [Produces ("application/json")]
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class PecasController : ControllerBase
@@ -22,7 +22,7 @@ namespace Senai.AutoPecas.WebApi.Controllers
         private IFornecedorRepository FornecedorInterface { get; set; }
 
 
-        public PecasController ()
+        public PecasController()
         {
             PecasInterface = new PecaRepository();
             FornecedorInterface = new FornecedorRepository();
@@ -37,8 +37,7 @@ namespace Senai.AutoPecas.WebApi.Controllers
             //pelo IdUsuario descobrir o Fornecedor
             Fornecedores fornecedor = FornecedorInterface.BuscarPorIdUsuario(IdUser);
             //listar pecas quando Idfornecedor for igual
-            // PAREI AQUI
-            return Ok(PecasInterface.Listar());
+            return Ok(PecasInterface.Listar(fornecedor));
         }
 
         [Authorize]
@@ -57,7 +56,8 @@ namespace Senai.AutoPecas.WebApi.Controllers
                 PecasInterface.Cadastrar(peca);
                 return Ok();
 
-            }catch(Exception exe)
+            }
+            catch (Exception exe)
             {
                 return BadRequest(new { mensagem = "Algum dado incorreto" + exe.Message });
             }
@@ -67,16 +67,29 @@ namespace Senai.AutoPecas.WebApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, Pecas peca)
         {
+            int IdUser = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
+            Fornecedores fornecedor = FornecedorInterface.BuscarPorIdUsuario(IdUser);
+
             try
             {
+                if (peca == null)
+                {
+                    return BadRequest(new { mensagem = "Informações Pendentes pararealizar o UPDATE" });
+                }
+
+                if (peca.IdFornecedor != fornecedor.IdUsuario)
+                {
+                    return NotFound();
+                }
+
                 PecasInterface.Atualizar(id, peca);
                 return Ok();
-
             }
             catch (Exception exe)
             {
                 return BadRequest(new { mensagem = "Algum dado incorreto ou nulo" + exe.Message });
             }
+            
         }
 
         [Authorize]
@@ -94,5 +107,7 @@ namespace Senai.AutoPecas.WebApi.Controllers
                 return BadRequest(new { mensagem = "Peça Inexistente" + exe.Message });
             }
         }
+
+      
     }
 }
