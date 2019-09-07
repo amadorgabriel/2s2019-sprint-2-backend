@@ -9,19 +9,11 @@ Dados a serem entregues:
 - Swagger -> ALL
 - GitHub -> ALL
 - Postman -> ALL
-- BackEnd -> DOING
+- BackEnd -> ALL
 
 + Desafios Extras
 
-Disponibilizar um endpoint para que seja mostrado o valor de ganho que a autope�as ir� obter 
-calculando o pre�o de venda sob o pre�o de custo. Mostrar a porcentagem e um outro campo mostrando 
-a diferen�a em reais entre um e outro.
-GET /api/pecas/precos
-
-
-Disponibilizar um endpoint p�blico para que seja apresentado os dados de todos os usu�rios, mas com
-um detalhe: a senha n�o dever� ser mostrada.
-GET /api/usuarios
+SINCERAMENTE, SÓ NÃO FIZ ESSE ENDPOINT POIS NÃO ENTENDI O QUE PRECISA FAZER
 
 Disponibilizar um endpoint para que ao enviar a quantidade de itens e o id da pe�a, seja calculado 
 o valor total e este valor seja retornado.

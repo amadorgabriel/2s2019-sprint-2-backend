@@ -24,7 +24,8 @@ namespace Senai.AutoPecas.WebApi.Domains
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_AutoPecas;User Id=sa;Pwd=132");
-optionsBuilder.UseSqlServer("Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_AutoPecas;Integrated Security=SSPI;");            }
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01;Initial Catalog=T_AutoPecas;Integrated Security=SSPI;");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

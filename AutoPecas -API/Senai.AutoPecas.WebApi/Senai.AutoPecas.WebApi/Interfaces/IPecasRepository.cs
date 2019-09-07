@@ -13,6 +13,7 @@ namespace Senai.AutoPecas.WebApi.Interfaces
         void Cadastrar(Pecas peca);
         void Atualizar(int Id, Pecas peca);
         void Deletar(int Id);
+        string MostrarLucro();
         
     }
 }

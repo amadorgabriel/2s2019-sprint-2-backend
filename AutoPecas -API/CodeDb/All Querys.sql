@@ -68,6 +68,11 @@ SELECT * FROM Pecas ORDER BY IdPeca;
 SELECT * FROM Fornecedores ORDER BY IdFornecedor;
 SELECT * FROM Pecas WHERE IdFornecedor = 1;
 
-SELECT IdUsuario, Email FROM Usuarios;
 -- select * from Usuarios(DROP=Senha); 
+SELECT IdUsuario, Email FROM Usuarios;
 
+SELECT Usuarios.IdUsuario, Usuarios.Email, Fornecedores.IdFornecedor, Fornecedores.CNPJ, Fornecedores.RazaoSocial, Fornecedores.NomeFantasia, Fornecedores.Endereco , Pecas.IdPeca, Pecas.CodigoPeca, Pecas.Descricao, Pecas.Peso, Pecas.PrecoCusto, Pecas.PrecoVenda
+FROM Usuarios JOIN Fornecedores 
+ON Usuarios.IdUsuario = Fornecedores.IdUsuario
+JOIN Pecas
+ON Fornecedores.IdFornecedor = Pecas.IdFornecedor

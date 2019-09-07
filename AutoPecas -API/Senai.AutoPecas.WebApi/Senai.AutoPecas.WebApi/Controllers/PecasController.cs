@@ -108,6 +108,13 @@ namespace Senai.AutoPecas.WebApi.Controllers
             }
         }
 
+        [HttpGet("precos")]
+        public IActionResult MostrarLucroEmpresa(){
+            string msg = PecasInterface.MostrarLucro();
+            return Ok( new { mensagem = msg } ); 
+
+        }
+
       
     }
 }
