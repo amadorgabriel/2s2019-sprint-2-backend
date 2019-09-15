@@ -12672,11 +12672,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\BackEnd\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
       "projectName": "Senai.ManualPecas.WebApi",
-      "projectPath": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
+      "projectPath": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\BackEnd\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
       "packagesPath": "C:\\Users\\Family\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\BackEnd\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

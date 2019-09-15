@@ -12,18 +12,18 @@ namespace Senai.ManualPecas.WebApi
 {
     public class Startup
     {
+
         public void ConfigureServices(IServiceCollection services)
         {
-            //confg ModelViewController
+            //configurar Mvc, Swagger, Authorizes ...
             services.AddMvc()
-                .AddJsonOptions(options =>
-                {
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                })
-                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+               .AddJsonOptions(options =>
+               {
+                   options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                   options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+               })
+               .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
-            //confg Swagger
             services.AddSwaggerGen(c =>
                    c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
                    {
@@ -32,7 +32,6 @@ namespace Senai.ManualPecas.WebApi
                    })
             );
 
-            //confg JsonWebTokens
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";
@@ -44,7 +43,7 @@ namespace Senai.ManualPecas.WebApi
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Chave_aqui_e_agora_nesse_instante")),
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("manualpecas-chave-validacao-autenticacao")),
                     ClockSkew = TimeSpan.FromMinutes(30),
                     ValidIssuer = "ManualPecas.WebApi",
                     ValidAudience = "ManualPecas.WebApi"
@@ -52,23 +51,20 @@ namespace Senai.ManualPecas.WebApi
             });
         }
 
-
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //Usar Mvc, Swagger, Authorizes ...
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
             app.UseAuthentication();
-
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ManualPecas API V1");
             });
-
             app.UseMvc();
         }
     }

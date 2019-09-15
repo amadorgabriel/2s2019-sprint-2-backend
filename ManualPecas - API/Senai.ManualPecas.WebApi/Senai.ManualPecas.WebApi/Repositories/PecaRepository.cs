@@ -7,37 +7,33 @@ using System.Threading.Tasks;
 
 namespace Senai.ManualPecas.WebApi.Repositories
 {
-    public class PecaRepository : IPecasInterface
+    public class PecaRepository : IPecaInterface
     {
-
-        public ManualPecasContext ctx = new ManualPecasContext();
-
+        public ManualPecasContext db = new ManualPecasContext();
+        
         public void Atualizar(int id, Pecas peca)
         {
-            Pecas pecaReturn = ctx.Pecas.FirstOrDefault(p => p.IdPeca == id);
-            pecaReturn.IdPeca = peca.IdPeca;
-            pecaReturn.Peso = peca.Peso;
-            pecaReturn.Descricao = peca.Descricao;
-            pecaReturn.Preco = peca.Preco;
-            ctx.SaveChanges();
+            Pecas pecaReurn = db.Pecas.Find(id);
+            pecaReurn.Descricao = peca.Descricao;
+            pecaReurn.Peso = peca.Peso;
+            db.SaveChanges();
         }
 
         public void Cadastrar(Pecas peca)
         {
-            ctx.Add(peca);
-            ctx.SaveChanges();
+            db.Pecas.Add(peca);
+            db.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            Pecas pecaReturn= ctx.Pecas.Find(id);
-            ctx.Remove(pecaReturn);
-            ctx.SaveChanges();
+            db.Pecas.Remove(db.Pecas.Find(id));
+            db.SaveChanges();
         }
 
         public List<Pecas> ListarTodas()
         {
-            return ctx.Pecas.ToList();
+            return db.Pecas.ToList();
         }
     }
 }

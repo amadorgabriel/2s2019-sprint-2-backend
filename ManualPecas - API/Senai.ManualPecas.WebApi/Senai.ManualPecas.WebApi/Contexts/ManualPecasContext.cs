@@ -17,9 +17,8 @@ namespace Senai.ManualPecas.WebApi.Domains
 
         public virtual DbSet<Fornecedores> Fornecedores { get; set; }
         public virtual DbSet<Pecas> Pecas { get; set; }
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
 
-        // Unable to generate entity type for table 'dbo.FornecedoresPecas'. Please see the warning messages.
+        // Unable to generate entity type for table 'dbo.PecaFornecedor'. Please see the warning messages.
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,11 +35,7 @@ namespace Senai.ManualPecas.WebApi.Domains
                 entity.HasKey(e => e.IdFornecedor);
 
                 entity.HasIndex(e => e.Cnpj)
-                    .HasName("UQ__Forneced__AA57D6B40832052C")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.IdUsuario)
-                    .HasName("UQ__Forneced__5B65BF96ABE78C10")
+                    .HasName("UQ__Forneced__AA57D6B4972A6A5C")
                     .IsUnique();
 
                 entity.Property(e => e.Cnpj)
@@ -58,17 +53,6 @@ namespace Senai.ManualPecas.WebApi.Domains
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
-                entity.Property(e => e.RazaoSocial)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithOne(p => p.Fornecedores)
-                    .HasForeignKey<Fornecedores>(d => d.IdUsuario)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Fornecedo__IdUsu__628FA481");
             });
 
             modelBuilder.Entity<Pecas>(entity =>
@@ -76,25 +60,6 @@ namespace Senai.ManualPecas.WebApi.Domains
                 entity.HasKey(e => e.IdPeca);
 
                 entity.Property(e => e.Descricao)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Usuarios>(entity =>
-            {
-                entity.HasKey(e => e.IdUsuario);
-
-                entity.HasIndex(e => e.Email)
-                    .HasName("UQ__Usuarios__A9D105348F6F8860")
-                    .IsUnique();
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Senha)
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);

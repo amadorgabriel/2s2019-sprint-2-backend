@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Senai.ManualPecas.WebApi.Interfaces
 {
-    public interface IFornecedorInterface
+    public interface IPecaInterface
     {
-        void Cadastrar(Fornecedores forn);
-        Fornecedores TrazerFornecedorPorIdUser(int idUser);
+        List<Pecas> ListarTodas();
+        void Cadastrar(Pecas peca);
+        void Atualizar(int id, Pecas peca);
+        void Deletar(int id);
     }
 }
