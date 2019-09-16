@@ -1,12 +1,17 @@
+
+
 A ManualPecas realiza o manuseio de determinadas peças e seus respectivos fornecedores.
 Por exemplo: A 'Peça A' é vendida pelo 'Fornecedor B' a um preço de 20 reais e é vendida pelo 'Fornecedor C' a um preço de 25 reais.
-
-Quem cadastra as próprias peças são os fornecedores, inserindo a quanto é vendido.
-O próprio fornecedor pode se cadastrar na plataforma.
 
 + BackEnd
 CRUD de Peças;
 Cadastrar Fornecedor;
+
+------------- REALIZADOS -------------------------
+
+Quem cadastra as próprias peças são os fornecedores, inserindo a quanto é vendido.
+O próprio fornecedor pode se cadastrar na plataforma.
+
 
 + Postman
 + Swagger

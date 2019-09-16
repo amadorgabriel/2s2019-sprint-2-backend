@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.ManualPecas.WebApi.Domains;
@@ -10,6 +12,7 @@ using Senai.ManualPecas.WebApi.Repositories;
 
 namespace Senai.ManualPecas.WebApi.Controllers
 {
+    [Produces ("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class PecasController : ControllerBase
@@ -25,6 +28,7 @@ namespace Senai.ManualPecas.WebApi.Controllers
         public IActionResult Listar()
         {
             var lista = pecaInterface.ListarTodas();
+
             if(lista == null)
             {
                 return NotFound(new { mensagem = "Lista nula" });
@@ -32,8 +36,9 @@ namespace Senai.ManualPecas.WebApi.Controllers
             return Ok(lista);
         }
 
+        [Authorize]
         [HttpPost]
-        public IActionResult Cadastrar (Pecas peca)
+        public IActionResult CadastrarPeca (Pecas peca)
         {
             try
             {
@@ -50,8 +55,9 @@ namespace Senai.ManualPecas.WebApi.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("{id}")]
-        public IActionResult Atualizar(int id, Pecas peca)
+        public IActionResult AtualizarPeca(int id, Pecas peca)
         {
             try
             {
@@ -68,8 +74,9 @@ namespace Senai.ManualPecas.WebApi.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult Deletar(int id)
+        public IActionResult DeletarPeca(int id)
         {
             pecaInterface.Deletar(id);
             return Ok();

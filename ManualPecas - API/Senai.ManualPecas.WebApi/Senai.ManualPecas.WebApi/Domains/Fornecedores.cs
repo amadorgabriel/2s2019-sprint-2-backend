@@ -13,5 +13,7 @@ namespace Senai.ManualPecas.WebApi.Domains
         public string NomeFantasia { get; set; }
         [Required]
         public string Endereco { get; set; }
+        [Required]
+        public string Senha { get; set; }
     }
 }

@@ -21,6 +21,8 @@ CREATE TABLE PecaFornecedor(
 	Preco FLOAT(2) NOT NULL
 );
 
+ALTER TABLE Fornecedores ADD Senha VARCHAR(255) 
+
 ------------------------ DML ----------------------------
 INSERT INTO Fornecedores (CNPJ, NomeFantasia, Endereco) VALUES 
 	('12345678901234', 'Fornecedor A', 'Rua do Nunca'),
@@ -35,6 +37,12 @@ INSERT INTO Pecas (Descricao,Peso)
 
 INSERT INTO PecaFornecedor (IdFornecedor, IdPeca, Preco) 
 		VALUES ( 1, 1, 60.57), (1, 4, 15.00), (2, 2, 107.00), (3, 3, 8.00), (3, 2, 47.99), (2, 1, 60.00), (3, 4, 27.00);
+
+UPDATE Fornecedores SET Senha = '123456' WHERE IdFornecedor = 1;
+UPDATE Fornecedores SET Senha = '123123' WHERE IdFornecedor = 2;
+UPDATE Fornecedores SET Senha = '654321' WHERE IdFornecedor = 3;
+
+DELETE FROM PecaFornecedor WHERE IdFornecedor = 1 AND IdPeca = 1;
 
 ------------------------ DQL ----------------------------
 

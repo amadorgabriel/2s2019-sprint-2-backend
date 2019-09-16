@@ -1,2 +1,2 @@
-            int idUser = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
-            string userPerm = HttpContext.User.Claims.First(user => user.Type == ClaimTypes.Role).Value;
+ int idUser = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value);
+ string userPerm = HttpContext.User.Claims.First(user => user.Type == ClaimTypes.Role).Value;

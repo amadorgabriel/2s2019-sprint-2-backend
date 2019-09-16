@@ -12666,23 +12666,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Family\\.nuget\\packages\\": {},
+    "C:\\Users\\44680781890\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\BackEnd\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\44680781890\\Documents\\Gabriel Amador - 2T\\2 Termo\\API-\\ManualPecas - API\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
       "projectName": "Senai.ManualPecas.WebApi",
-      "projectPath": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\BackEnd\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
-      "packagesPath": "C:\\Users\\Family\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Family\\Documents\\Gabriel Rodrigues Amador\\SENAI\\2Termo\\Aplication-Programing-Interface---API\\ManualPecas - API\\BackEnd\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\obj\\",
+      "projectPath": "C:\\Users\\44680781890\\Documents\\Gabriel Amador - 2T\\2 Termo\\API-\\ManualPecas - API\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi.csproj",
+      "packagesPath": "C:\\Users\\44680781890\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\44680781890\\Documents\\Gabriel Amador - 2T\\2 Termo\\API-\\ManualPecas - API\\Senai.ManualPecas.WebApi\\Senai.ManualPecas.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Family\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\44680781890\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12718,7 +12718,6 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

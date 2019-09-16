@@ -24,7 +24,8 @@ namespace Senai.ManualPecas.WebApi.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=T_ManualPecas;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01 ");
+                optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_ManualPecas;User Id=sa;Pwd=132");
+                //optionsBuilder.UseSqlServer("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=T_ManualPecas;Data Source=DESKTOP-JBDLFFG\\MSSQLSERVER01 ");
             }
         }
 
