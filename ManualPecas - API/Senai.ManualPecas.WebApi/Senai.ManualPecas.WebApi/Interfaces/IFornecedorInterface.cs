@@ -12,6 +12,6 @@ namespace Senai.ManualPecas.WebApi.Interfaces
         Fornecedores Buscar(LoginViewModel logon);
         List<Fornecedores> ListarFornecedores();
         void CadastrarFornecedor(Fornecedores f );
-
+        Fornecedores BuscarPorId(int id);
     }
 }

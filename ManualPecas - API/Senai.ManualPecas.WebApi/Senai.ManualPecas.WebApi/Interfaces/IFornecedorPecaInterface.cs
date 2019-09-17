@@ -9,7 +9,9 @@ namespace Senai.ManualPecas.WebApi.Interfaces
     public interface IFornecedorPecaInterface
     {
         // PECASDOFORNECEDOR:
-        void CadastrarPecaFornecedor(int idfor, int idPeca, float preco);
-        void DeletarPecaFornecedor(int idfor);
+        void CadastrarPecaFornecedor(FornecedorPeca pecaF);
+        void DeletarPecaFornecedor(int idPeca, int idFor);
+        List<Fornecedores> TrazerFornecedorBarato(int idPeca);
+
     }
 }

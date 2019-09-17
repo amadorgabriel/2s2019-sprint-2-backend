@@ -19,6 +19,12 @@ namespace Senai.ManualPecas.WebApi.Repositories
             return fornReturn;
         }
 
+        public Fornecedores BuscarPorId(int id)
+        {
+            Fornecedores f = db.Fornecedores.Find(id);
+            return f;
+        }
+
         public void CadastrarFornecedor(Fornecedores fornecedor)
         {
             db.Fornecedores.Add(fornecedor);
@@ -29,5 +35,6 @@ namespace Senai.ManualPecas.WebApi.Repositories
         {
             return db.Fornecedores.ToList();
         }
+
     }
 }

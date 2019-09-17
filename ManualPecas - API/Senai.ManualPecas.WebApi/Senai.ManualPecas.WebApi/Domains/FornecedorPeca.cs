@@ -9,11 +9,11 @@ namespace Senai.ManualPecas.WebApi.Domains
     public partial class FornecedorPeca
     {
         [Required]
-        public int IdFornecedor { get; set; }
+        public int ? IdFornecedor { get; set; }
         [Required]
-        public int IdPeca { get; set; }
+        public int ? IdPeca { get; set; }
         [Required]
-        public float Peso { get; set; }
+        public float ? Preco { get; set; }
     }
 }
 
