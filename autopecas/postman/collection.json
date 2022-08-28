@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "aa496dc2-a13c-418c-991f-167d9924514f",
+		"name": "Senai.AutoPecas.Tarde",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Peças",
+			"item": [
+				{
+					"name": "Pecas.Listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BmdWxhbm8uY29tIiwianRpIjoiMSIsImV4cCI6MTU2NzY0MTMwNiwiaXNzIjoiQXV0b1BlY2FzLldlYkFwaSIsImF1ZCI6IkF1dG9QZWNhcy5XZWJBcGkifQ.KE-crEUyuaNMHUZ6iJoxhYth1wP7HBK3A6UAXfXtQLE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Pecas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Pecas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Pecas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Pecas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BmdWxhbm8uY29tIiwianRpIjoiMSIsImV4cCI6MTU2NzY0MTMwNiwiaXNzIjoiQXV0b1BlY2FzLldlYkFwaSIsImF1ZCI6IkF1dG9QZWNhcy5XZWJBcGkifQ.KE-crEUyuaNMHUZ6iJoxhYth1wP7HBK3A6UAXfXtQLE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoPeca\": \"EA\",\r\n    \"descricao\": \"Descricao...\",\r\n    \"peso\": 3.0,\r\n    \"precoCusto\": 25.0,\r\n    \"precoVenda\": 32.0,\r\n    \"idFornecedor\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Pecas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Pecas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas.Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNpY2xhbm9AY2ljbGFuby5jb20iLCJqdGkiOiIyIiwiZXhwIjoxNTY3NjQzMTM2LCJpc3MiOiJBdXRvUGVjYXMuV2ViQXBpIiwiYXVkIjoiQXV0b1BlY2FzLldlYkFwaSJ9.x8vZ2PBu5e4XV7ezClJYWyBiFo9PoWYWtP3VcbjuDtM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoPeca\": \"EA\",\r\n    \"descricao\": \"Descricao...\",\r\n    \"peso\": 4.4,\r\n    \"precoCusto\": 24.0,\r\n    \"precoVenda\": 32.0,\r\n    \"idFornecedor\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Pecas/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Pecas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Pecas/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Pecas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pecas.PrecosELucros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Pecas/precos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Pecas",
+								"precos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login.Logar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"ciclano@ciclano.com\",\n\t\"senha\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fornecedores",
+			"item": [
+				{
+					"name": "Fornecedores.ListarDados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Fornecedores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Fornecedores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Usuarios.ListarDados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

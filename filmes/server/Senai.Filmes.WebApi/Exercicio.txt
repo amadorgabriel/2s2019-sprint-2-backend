@@ -1,0 +1,33 @@
+Criar um controller para exibir todos os gêneros.
+
+GET 	/api/generos
+GET 	/api/generos/{id}
+PUT 	/api/generos/{id}
+DELETE 	/api/generos/{id}
+POST 	/api/generos
+
+Desafios:
+- Fazer com que o nome do gênero seja obrigatório.
+
+Criar um controller para exibir todos os filmes e seus determinados gêneros.
+GET 	/api/filmes
+GET 	/api/filmes/{id}
+POST	/api/filmes
+
+Documentação: Incluir o swagger.
+
+- Dado um determinado id do gênero, mostrar os filmes vinculados.
+GET 	/api/generos/{id}/filmes
+Caso não tenha filmes vinculados, retornar o código de erro 204.
+Caso não encontre o id do gênero, retornar o código de erro 404.
+
+- Dado um determinado gênero, trazer a sua lista de registros encontrados no banco.
+GET	/api/generos/{nome}/buscar
+
+-------------- PENDENTES.. -------------------
+
+
+- Dado uma determinada palavra do filme, trazer a lista de registros encontrados.
+GET	/api/filmes/{nome}/buscar
+
+Por exemplo: 'Exterminador do Futuro I', 'Exterminador II', 'Exterminador O Retorno'. Ao buscar: 'exterminador', trazer a lista contendo os 3 (três) registros.
