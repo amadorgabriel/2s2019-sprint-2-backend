@@ -1,4 +1,0 @@
-Scaffold-DbContext "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=T_ManualPecas;Data Source=DESKTOP-JBDLFFG\MSSQLSERVER01 " Microsoft.EntityFrameworkCore.SqlServer -OutputDir Domains -ContextDir Contexts -Context ManualPecasContext
-
-Scaffold-DbContext "Data Source=.\SqlExpress; Initial Catalog=M_Ekips;User Id=sa;Pwd=132" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Domains -ContextDir Contexts -Context EkipsContext
-
